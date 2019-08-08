@@ -1,0 +1,11 @@
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\bin\Debug\1raEntrega.exe.config
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\bin\Debug\1raEntrega.exe
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\bin\Debug\1raEntrega.pdb
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.csprojAssemblyReference.cache
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.Properties.Resources.resources
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.csproj.GenerateResource.cache
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.csproj.CoreCompileInputs.cache
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.exe
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.pdb
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.Integrantes.resources
+E:\Documentos\Facultad\IV-SIM\Entregas\1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.Principal.resources
