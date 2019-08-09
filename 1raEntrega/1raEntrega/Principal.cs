@@ -35,7 +35,35 @@ namespace _1raEntrega
 
         private void métodoCongruencialMixtoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pageSetupDialog1 = new Integrantes();
+            
+            int x = (int) edtSemilla.Value;
+            int a = (int) edtA.Value;
+            int c = (int) edtC.Value;
+            int m = (int) edtM.Value;
+            
+            for (int i = 0; i < 20; i++)
+            {
+                float aleatorio = ((float)x/ m);
+
+                lstNumeros.Items.Add("" + aleatorio.ToString());
+                int rtdo = calcularMetodoCongruencialMixto(x, a, m, c);
+                
+                x = rtdo;
+            }
+        }
+
+        private int calcularMetodoCongruencialMixto(int x, int a, int m, int c)
+        {
+            int resultado;
+
+            //Calculo del numero aleatorio
+            resultado = ((a * x + c) % m);
+            
+            return resultado;
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
