@@ -24,6 +24,9 @@ namespace _1raEntrega
             int c = (int)edtC.Value;
             int m = (int)edtM.Value;
 
+            //Limpia la lista cada vez que se aprieta el boton generar
+            lstNumeros.Items.Clear();
+
             for (int i = 0; i < 20; i++)
             {
                 float aleatorio = ((float)x / m);

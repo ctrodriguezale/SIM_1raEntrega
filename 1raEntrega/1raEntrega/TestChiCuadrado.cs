@@ -20,8 +20,12 @@ namespace _1raEntrega
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            int x = (int)edtCantidad.Value;
+            //Limpia la lista cada vez que se aprieta el boton generar
+            lstAleatorios.Items.Clear();
+
             //Generamos un listado de numeros aleatorios
-            List<double> listado = Generador.GenerarAleatorios(20);
+            List<double> listado = Generador.GenerarAleatorios(x);
             for (int i=0; i<listado.Count; i++)
             {
                 lstAleatorios.Items.Add(listado[i]);
@@ -67,6 +71,11 @@ namespace _1raEntrega
             }
 
             return frecuencias;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

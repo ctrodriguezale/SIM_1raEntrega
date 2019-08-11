@@ -47,17 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generador.cs" />
-    <Compile Include="Integrantes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Integrantes.Designer.cs">
-      <DependentUpon>Integrantes.cs</DependentUpon>
-    </Compile>
     <Compile Include="MetodosCongruenciales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MetodosCongruenciales.Designer.cs">
       <DependentUpon>MetodosCongruenciales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetodosCongruenciales2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetodosCongruenciales2.Designer.cs">
+      <DependentUpon>MetodosCongruenciales2.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -73,11 +73,11 @@
     <Compile Include="TestChiCuadrado.Designer.cs">
       <DependentUpon>TestChiCuadrado.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Integrantes.resx">
-      <DependentUpon>Integrantes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MetodosCongruenciales.resx">
       <DependentUpon>MetodosCongruenciales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetodosCongruenciales2.resx">
+      <DependentUpon>MetodosCongruenciales2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
