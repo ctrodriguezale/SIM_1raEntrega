@@ -20,17 +20,11 @@ namespace _1raEntrega
         private void btnSalir_Click(object sender, EventArgs e)
         {
             //Sale de la aplicacion previa confirmacion
-            DialogResult resultado = MessageBox.Show("¿Seguro desea salir de la apliación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resultado = MessageBox.Show("¿Desea salir de la apliación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultado == DialogResult.Yes)
             {
                 Close();
             }
-        }
-
-        private void integrantesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Integrantes acercaDe = new Integrantes();
-            acercaDe.ShowDialog();
         }
 
         private void métodoCongruencialMixtoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,9 +33,10 @@ namespace _1raEntrega
             dialogo.ShowDialog();
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void métodoMultiplicativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MetodosCongruenciales2 dialogo = new MetodosCongruenciales2();
+            dialogo.ShowDialog();
         }
 
         private void puntoBToolStripMenuItem_Click(object sender, EventArgs e)

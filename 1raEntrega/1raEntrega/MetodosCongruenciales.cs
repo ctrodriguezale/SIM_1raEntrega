@@ -45,7 +45,9 @@ namespace _1raEntrega
         {
             double aleatorio = x;
 
-            //Generamos lo primeros 20 numeros
+           //Generamos lo primeros 20 numeros
+            //Limpia la lista cada vez que se aprieta el boton generar
+            lstNumeros.Items.Clear();
             for (int i = 0; i < 20; i++)
             {
                 lstNumeros.Items.Add(aleatorio.ToString());

@@ -40,9 +40,8 @@
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lstNumeros = new System.Windows.Forms.ListBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbMetodos = new System.Windows.Forms.ComboBox();
-            this.lblMetodos = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.edtM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSemilla)).BeginInit();
@@ -53,7 +52,7 @@
             // lblM
             // 
             this.lblM.AutoSize = true;
-            this.lblM.Location = new System.Drawing.Point(454, 57);
+            this.lblM.Location = new System.Drawing.Point(458, 70);
             this.lblM.Name = "lblM";
             this.lblM.Size = new System.Drawing.Size(43, 13);
             this.lblM.TabIndex = 19;
@@ -62,7 +61,7 @@
             // lblC
             // 
             this.lblC.AutoSize = true;
-            this.lblC.Location = new System.Drawing.Point(307, 57);
+            this.lblC.Location = new System.Drawing.Point(304, 70);
             this.lblC.Name = "lblC";
             this.lblC.Size = new System.Drawing.Size(41, 13);
             this.lblC.TabIndex = 18;
@@ -71,7 +70,7 @@
             // lblA
             // 
             this.lblA.AutoSize = true;
-            this.lblA.Location = new System.Drawing.Point(160, 57);
+            this.lblA.Location = new System.Drawing.Point(160, 70);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(41, 13);
             this.lblA.TabIndex = 17;
@@ -80,7 +79,7 @@
             // lblSemilla
             // 
             this.lblSemilla.AutoSize = true;
-            this.lblSemilla.Location = new System.Drawing.Point(6, 57);
+            this.lblSemilla.Location = new System.Drawing.Point(18, 70);
             this.lblSemilla.Name = "lblSemilla";
             this.lblSemilla.Size = new System.Drawing.Size(40, 13);
             this.lblSemilla.TabIndex = 16;
@@ -88,7 +87,7 @@
             // 
             // edtM
             // 
-            this.edtM.Location = new System.Drawing.Point(500, 55);
+            this.edtM.Location = new System.Drawing.Point(507, 68);
             this.edtM.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -110,7 +109,7 @@
             // 
             // edtC
             // 
-            this.edtC.Location = new System.Drawing.Point(354, 55);
+            this.edtC.Location = new System.Drawing.Point(351, 68);
             this.edtC.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -122,7 +121,7 @@
             // 
             // edtSemilla
             // 
-            this.edtSemilla.Location = new System.Drawing.Point(60, 55);
+            this.edtSemilla.Location = new System.Drawing.Point(64, 68);
             this.edtSemilla.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -134,7 +133,7 @@
             // 
             // edtA
             // 
-            this.edtA.Location = new System.Drawing.Point(207, 55);
+            this.edtA.Location = new System.Drawing.Point(207, 68);
             this.edtA.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -156,7 +155,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(500, 90);
+            this.btnGenerar.Location = new System.Drawing.Point(398, 111);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(94, 22);
             this.btnGenerar.TabIndex = 23;
@@ -167,14 +166,14 @@
             // lstNumeros
             // 
             this.lstNumeros.FormattingEnabled = true;
-            this.lstNumeros.Location = new System.Drawing.Point(199, 143);
+            this.lstNumeros.Location = new System.Drawing.Point(32, 111);
             this.lstNumeros.Name = "lstNumeros";
             this.lstNumeros.Size = new System.Drawing.Size(216, 264);
             this.lstNumeros.TabIndex = 24;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(508, 165);
+            this.btnAgregar.Location = new System.Drawing.Point(398, 365);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(94, 23);
             this.btnAgregar.TabIndex = 25;
@@ -223,17 +222,37 @@
             this.lblMetodos.TabIndex = 0;
             this.lblMetodos.Text = "Métodos";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Ingrese valores para generar números aleatorios:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 15);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Método Congruencial Mixto";
+            // 
             // MetodosCongruenciales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 450);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(594, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lstNumeros);
             this.Controls.Add(this.btnCerrar);
             this.Name = "MetodosCongruenciales";
-            this.Text = "MetodosCongruenciales";
+            this.Text = "Generadores de Números Aleatorios";
             ((System.ComponentModel.ISupportInitialize)(this.edtM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSemilla)).EndInit();
@@ -257,8 +276,7 @@
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.ListBox lstNumeros;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbMetodos;
-        private System.Windows.Forms.Label lblMetodos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
