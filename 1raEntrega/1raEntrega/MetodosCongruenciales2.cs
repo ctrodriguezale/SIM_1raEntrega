@@ -12,6 +12,11 @@ namespace _1raEntrega
 {
     public partial class MetodosCongruenciales2 : Form
     {
+        int x;
+        int a;
+        int c;
+        int m;
+
         public MetodosCongruenciales2()
         {
             InitializeComponent();
@@ -19,23 +24,16 @@ namespace _1raEntrega
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-                int x = (int)edtSemilla.Value;
-                int a = (int)edtA.Value;
-                int c = (int)edtC.Value;
-                int m = (int)edtM.Value;
+            x = (int) edtSemilla.Value;
+            a = (int) edtA.Value;
+            c = (int) edtC.Value;
+            m = (int) edtM.Value;
 
                 //Limpia la lista cada vez que se aprieta el boton generar
-                lstNumeros.Items.Clear();
+            lstNumeros.Items.Clear();
 
-                for (int i = 0; i < 20; i++)
-                {
-                    float aleatorio = ((float)x / m);
-
-                    lstNumeros.Items.Add("" + aleatorio.ToString());
-                    int rtdo = Generador.calcularMetodoMutiplicativo(x, a, m);
-
-                    x = rtdo;
-                }
+            //Se generan los 20 primeros nuemros
+            CalcularAleatoriosMetodoMultiplicativo();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -43,7 +41,7 @@ namespace _1raEntrega
             Close();
         }
 
-        private void CalcularAleatoriosMetodoMultiplicativo(int x, int a, int m)
+        private void CalcularAleatoriosMetodoMultiplicativo()
         {
             double aleatorio = x;
 
@@ -51,9 +49,14 @@ namespace _1raEntrega
             for (int i = 0; i < 20; i++)
             {
                 lstNumeros.Items.Add(aleatorio.ToString());
-                aleatorio = Generador.generarAleatorioCongruenteMultiplicativo(x, a, m);
+                aleatorio = Generador.generarAleatorioCongruencialMultiplicativo(ref x, a, m);
             }
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            double aleatorio = Generador.generarAleatorioCongruencialMultiplicativo(ref x, a, m);
+            lstNumeros.Items.Add(aleatorio.ToString());
+        }
     }
 }

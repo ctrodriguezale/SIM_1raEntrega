@@ -36,23 +36,13 @@ namespace _1raEntrega
         }
 
         //Metodo Multiplicativo para generar numeros aleatorios
-        public static int calcularMetodoMutiplicativo(int x, int a, int m)
-        {
-            int resultado;
-
-            //Calculo del numero aleatorio
-            resultado = ((a * x) % m);
-
-            return resultado;
-        }
-
-        public static double generarAleatorioCongruenteMultiplicativo(int x, int a, int m)
+        public static double generarAleatorioCongruencialMultiplicativo(ref int x, int a, int m)
         {
             double aleatorio;
-            //Calcula el aleatorio y actualiza x al nuevo valor
-            x = (a * x) % m;
-            aleatorio = (double)x / m;
 
+            //Calculo del numero aleatorio
+            x = (a * x) % m;
+            aleatorio = Math.Round((double)x / m, 4);
 
             return aleatorio;
         }
