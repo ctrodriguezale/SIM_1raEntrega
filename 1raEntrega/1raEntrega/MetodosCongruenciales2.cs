@@ -58,5 +58,10 @@ namespace _1raEntrega
             double aleatorio = Generador.generarAleatorioCongruencialMultiplicativo(ref x, a, m);
             lstNumeros.Items.Add(aleatorio.ToString());
         }
+
+        private void btnCerrar_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
