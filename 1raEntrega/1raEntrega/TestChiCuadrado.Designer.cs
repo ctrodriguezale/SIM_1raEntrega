@@ -142,7 +142,7 @@
             this.Controls.Add(this.edtCantidad);
             this.Controls.Add(this.lblCantidad);
             this.Name = "TestChiCuadrado";
-            this.Text = "Test Chi Cuadrado";
+            this.Text = "Test Chi Cuadrado con Generador Propio del Lenguaje";
             ((System.ComponentModel.ISupportInitialize)(this.edtCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).EndInit();
             this.ResumeLayout(false);

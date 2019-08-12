@@ -73,6 +73,12 @@
     <Compile Include="TestChiCuadrado.Designer.cs">
       <DependentUpon>TestChiCuadrado.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestChiCuadrado2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestChiCuadrado2.Designer.cs">
+      <DependentUpon>TestChiCuadrado2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MetodosCongruenciales.resx">
       <DependentUpon>MetodosCongruenciales.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="TestChiCuadrado.resx">
       <DependentUpon>TestChiCuadrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestChiCuadrado2.resx">
+      <DependentUpon>TestChiCuadrado2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

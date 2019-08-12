@@ -44,5 +44,12 @@ namespace _1raEntrega
             TestChiCuadrado frm = new TestChiCuadrado();
             frm.ShowDialog();
         }
+
+        private void puntoCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestChiCuadrado2 frm = new TestChiCuadrado2();
+            frm.ShowDialog();
+        }
+
     }
 }
