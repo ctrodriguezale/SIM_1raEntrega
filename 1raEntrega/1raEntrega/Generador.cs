@@ -24,14 +24,15 @@ namespace _1raEntrega
         }
 
         //Metodo Congruencial Mixto para generar numeros aleatorios
-        public static int calcularMetodoCongruencialMixto(int x, int a, int m, int c)
+        public static double generarAleatorioCongruencialMixto(ref int x, int a, int m, int c)
         {
-            int resultado;
+            double aleatorio;
 
             //Calculo del numero aleatorio
-            resultado = ((a * x + c) % m);
-
-            return resultado;
+            x = (a * x + c) % m;
+            aleatorio = Math.Round((double)x/m, 4);
+            
+            return aleatorio;
         }
 
         //Metodo Multiplicativo para generar numeros aleatorios
@@ -43,17 +44,6 @@ namespace _1raEntrega
             resultado = ((a * x) % m);
 
             return resultado;
-        }
-
-        public static double generarAleatorioCongruenteMixto(int x, int a, int m, int c)
-        {
-            double aleatorio;
-            //Calcula el aleatorio y actualiza x al nuevo valor
-            x = (a * x + c) % m;
-            aleatorio = (double) x / m;
-
-
-            return aleatorio;
         }
 
         public static double generarAleatorioCongruenteMultiplicativo(int x, int a, int m)

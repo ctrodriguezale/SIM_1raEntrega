@@ -46,7 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.edtC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSemilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtA)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblM
@@ -99,8 +98,8 @@
             0,
             0});
             this.edtM.Name = "edtM";
-            this.edtM.Size = new System.Drawing.Size(94, 20);
-            this.edtM.TabIndex = 15;
+            this.edtM.Size = new System.Drawing.Size(72, 20);
+            this.edtM.TabIndex = 4;
             this.edtM.Value = new decimal(new int[] {
             1,
             0,
@@ -116,8 +115,8 @@
             0,
             0});
             this.edtC.Name = "edtC";
-            this.edtC.Size = new System.Drawing.Size(94, 20);
-            this.edtC.TabIndex = 14;
+            this.edtC.Size = new System.Drawing.Size(72, 20);
+            this.edtC.TabIndex = 3;
             // 
             // edtSemilla
             // 
@@ -128,8 +127,8 @@
             0,
             0});
             this.edtSemilla.Name = "edtSemilla";
-            this.edtSemilla.Size = new System.Drawing.Size(94, 20);
-            this.edtSemilla.TabIndex = 13;
+            this.edtSemilla.Size = new System.Drawing.Size(72, 20);
+            this.edtSemilla.TabIndex = 1;
             // 
             // edtA
             // 
@@ -140,25 +139,25 @@
             0,
             0});
             this.edtA.Name = "edtA";
-            this.edtA.Size = new System.Drawing.Size(94, 20);
-            this.edtA.TabIndex = 12;
+            this.edtA.Size = new System.Drawing.Size(72, 20);
+            this.edtA.TabIndex = 2;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(508, 415);
+            this.btnCerrar.Location = new System.Drawing.Point(507, 415);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(94, 23);
-            this.btnCerrar.TabIndex = 21;
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 7;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(398, 111);
+            this.btnGenerar.Location = new System.Drawing.Point(426, 111);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(94, 22);
-            this.btnGenerar.TabIndex = 23;
+            this.btnGenerar.Size = new System.Drawing.Size(75, 22);
+            this.btnGenerar.TabIndex = 5;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
@@ -168,59 +167,20 @@
             this.lstNumeros.FormattingEnabled = true;
             this.lstNumeros.Location = new System.Drawing.Point(32, 111);
             this.lstNumeros.Name = "lstNumeros";
-            this.lstNumeros.Size = new System.Drawing.Size(216, 264);
+            this.lstNumeros.Size = new System.Drawing.Size(216, 277);
             this.lstNumeros.TabIndex = 24;
+            this.lstNumeros.TabStop = false;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(398, 365);
+            this.btnAgregar.Enabled = false;
+            this.btnAgregar.Location = new System.Drawing.Point(426, 365);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(94, 23);
-            this.btnAgregar.TabIndex = 25;
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cmbMetodos);
-            this.groupBox1.Controls.Add(this.lblMetodos);
-            this.groupBox1.Controls.Add(this.lblSemilla);
-            this.groupBox1.Controls.Add(this.btnGenerar);
-            this.groupBox1.Controls.Add(this.edtA);
-            this.groupBox1.Controls.Add(this.edtSemilla);
-            this.groupBox1.Controls.Add(this.lblM);
-            this.groupBox1.Controls.Add(this.edtC);
-            this.groupBox1.Controls.Add(this.lblC);
-            this.groupBox1.Controls.Add(this.edtM);
-            this.groupBox1.Controls.Add(this.lblA);
-            this.groupBox1.Location = new System.Drawing.Point(8, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 122);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parámetros";
-            // 
-            // cmbMetodos
-            // 
-            this.cmbMetodos.FormattingEnabled = true;
-            this.cmbMetodos.Items.AddRange(new object[] {
-            "Congruencial Mixto",
-            "Congruencial Multiplicativo"});
-            this.cmbMetodos.Location = new System.Drawing.Point(60, 18);
-            this.cmbMetodos.Name = "cmbMetodos";
-            this.cmbMetodos.Size = new System.Drawing.Size(241, 21);
-            this.cmbMetodos.TabIndex = 1;
-            this.cmbMetodos.SelectedIndexChanged += new System.EventHandler(this.cmbMetodos_SelectedIndexChanged);
-            // 
-            // lblMetodos
-            // 
-            this.lblMetodos.AutoSize = true;
-            this.lblMetodos.Location = new System.Drawing.Point(6, 21);
-            this.lblMetodos.Name = "lblMetodos";
-            this.lblMetodos.Size = new System.Drawing.Size(48, 13);
-            this.lblMetodos.TabIndex = 0;
-            this.lblMetodos.Text = "Métodos";
             // 
             // label1
             // 
@@ -250,16 +210,24 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lstNumeros);
+            this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.lblM);
+            this.Controls.Add(this.lblC);
+            this.Controls.Add(this.lblA);
+            this.Controls.Add(this.lblSemilla);
+            this.Controls.Add(this.edtM);
+            this.Controls.Add(this.edtC);
+            this.Controls.Add(this.edtSemilla);
+            this.Controls.Add(this.edtA);
             this.Name = "MetodosCongruenciales";
             this.Text = "Generadores de Números Aleatorios";
             ((System.ComponentModel.ISupportInitialize)(this.edtM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSemilla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtA)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -43,5 +43,17 @@ namespace _1raEntrega
             Close();
         }
 
+        private void CalcularAleatoriosMetodoMultiplicativo(int x, int a, int m)
+        {
+            double aleatorio = x;
+
+            //Generamos lo primeros 20 numeros
+            for (int i = 0; i < 20; i++)
+            {
+                lstNumeros.Items.Add(aleatorio.ToString());
+                aleatorio = Generador.generarAleatorioCongruenteMultiplicativo(x, a, m);
+            }
+        }
+
     }
 }

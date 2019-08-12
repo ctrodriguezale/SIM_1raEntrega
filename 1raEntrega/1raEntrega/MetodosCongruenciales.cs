@@ -16,54 +16,38 @@ namespace _1raEntrega
         int a;
         int c;
         int m;
-        int metodo; 
 
         public MetodosCongruenciales()
         {
             InitializeComponent();
-            cmbMetodos.SelectedIndex = 0;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             //Reiniciamos la lista
             lstNumeros.Items.Clear();
+            btnAgregar.Enabled = true;
+
             //Configuramos los valores iniciales
             x = (int)edtSemilla.Value;
             a = (int)edtA.Value;
             c = (int)edtC.Value;
             m = (int)edtM.Value;
-            metodo = cmbMetodos.SelectedIndex;
 
-            if (metodo == 0)
-                CalcularAleatoriosMetodoMixto();
-            else
-                CalcularAleatoriosMetodoMultiplicativo();
+            CalcularAleatoriosMetodoMixto();
         }
 
         private void CalcularAleatoriosMetodoMixto()
         {
-            double aleatorio = x;
+            double aleatorio = ((double)x)/m;
 
-           //Generamos lo primeros 20 numeros
+            //Generamos lo primeros 20 numeros
             //Limpia la lista cada vez que se aprieta el boton generar
             lstNumeros.Items.Clear();
             for (int i = 0; i < 20; i++)
             {
                 lstNumeros.Items.Add(aleatorio.ToString());
-                aleatorio = Generador.calcularMetodoCongruencialMixto(x, a, m, c);
-            }
-        }
-
-        private void CalcularAleatoriosMetodoMultiplicativo()
-        {
-            double aleatorio = x;
-
-            //Generamos lo primeros 20 numeros
-            for (int i = 0; i < 20; i++)
-            {
-                lstNumeros.Items.Add(aleatorio.ToString());
-                aleatorio = Generador.generarAleatorioCongruenteMultiplicativo(x, a, m);
+                aleatorio = Generador.generarAleatorioCongruencialMixto(ref x, a, m, c);
             }
         }
 
@@ -72,27 +56,10 @@ namespace _1raEntrega
             Close();
         }
 
-        private void cmbMetodos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Deshabilita o habilita las entradas necesarias
-            if (cmbMetodos.SelectedIndex == 0)
-            {
-                edtA.Enabled = true;
-                edtM.Enabled = true;
-            }
-            else
-            {
-                edtA.Enabled = false;
-                edtM.Enabled = false;
-            }
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (metodo == 0)
-                Generador.generarAleatorioCongruenteMixto(x, a, m, c);
-            else
-                Generador.generarAleatorioCongruenteMultiplicativo(x,a,m);
+            double aleatorio = Generador.generarAleatorioCongruencialMixto(ref x, a, m, c);
+            lstNumeros.Items.Add(aleatorio);
         }
     }
 }
