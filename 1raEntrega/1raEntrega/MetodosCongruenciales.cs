@@ -44,10 +44,19 @@ namespace _1raEntrega
             //Generamos lo primeros 20 numeros
             //Limpia la lista cada vez que se aprieta el boton generar
             lstNumeros.Items.Clear();
+            listNumAl.Items.Clear();
+            int j = 0;
+            string item = "";
             for (int i = 0; i < 20; i++)
             {
+                item =j.ToString();
                 lstNumeros.Items.Add(aleatorio.ToString());
+                //listNumAl.Items.Add(item, aleatorio.ToString());
+                //listNumAl. Add(aleatorio.ToString());
                 aleatorio = Generador.generarAleatorioCongruencialMixto(ref x, a, m, c);
+                j++;
+
+               
             }
         }
 

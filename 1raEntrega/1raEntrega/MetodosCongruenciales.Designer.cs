@@ -42,6 +42,9 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.listNumAl = new System.Windows.Forms.ListView();
+            this.columnItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNumAl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.edtM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtSemilla)).BeginInit();
@@ -138,9 +141,19 @@
             0,
             0,
             0});
+            this.edtA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.edtA.Name = "edtA";
             this.edtA.Size = new System.Drawing.Size(72, 20);
             this.edtA.TabIndex = 2;
+            this.edtA.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnCerrar
             // 
@@ -167,7 +180,7 @@
             this.lstNumeros.FormattingEnabled = true;
             this.lstNumeros.Location = new System.Drawing.Point(32, 111);
             this.lstNumeros.Name = "lstNumeros";
-            this.lstNumeros.Size = new System.Drawing.Size(216, 277);
+            this.lstNumeros.Size = new System.Drawing.Size(147, 277);
             this.lstNumeros.TabIndex = 24;
             this.lstNumeros.TabStop = false;
             // 
@@ -201,11 +214,24 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Método Congruencial Mixto";
             // 
+            // listNumAl
+            // 
+            this.listNumAl.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnItem,
+            this.columnNumAl});
+            this.listNumAl.Location = new System.Drawing.Point(207, 111);
+            this.listNumAl.Name = "listNumAl";
+            this.listNumAl.Size = new System.Drawing.Size(181, 277);
+            this.listNumAl.TabIndex = 28;
+            this.listNumAl.UseCompatibleStateImageBehavior = false;
+            this.listNumAl.View = System.Windows.Forms.View.Tile;
+            // 
             // MetodosCongruenciales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 450);
+            this.Controls.Add(this.listNumAl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
@@ -246,5 +272,8 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listNumAl;
+        private System.Windows.Forms.ColumnHeader columnItem;
+        private System.Windows.Forms.ColumnHeader columnNumAl;
     }
 }

@@ -82,7 +82,7 @@
             this.métodoCongruencialMixtoToolStripMenuItem,
             this.métodoMultiplicativoToolStripMenuItem});
             this.puntoAToolStripMenuItem.Name = "puntoAToolStripMenuItem";
-            this.puntoAToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.puntoAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.puntoAToolStripMenuItem.Text = "Punto A";
             // 
             // métodoCongruencialMixtoToolStripMenuItem
@@ -97,19 +97,21 @@
             this.métodoMultiplicativoToolStripMenuItem.Name = "métodoMultiplicativoToolStripMenuItem";
             this.métodoMultiplicativoToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.métodoMultiplicativoToolStripMenuItem.Text = "Método Multiplicativo";
+            this.métodoMultiplicativoToolStripMenuItem.Click += new System.EventHandler(this.métodoMultiplicativoToolStripMenuItem_Click);
             // 
             // puntoBToolStripMenuItem
             // 
             this.puntoBToolStripMenuItem.Name = "puntoBToolStripMenuItem";
-            this.puntoBToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.puntoBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.puntoBToolStripMenuItem.Text = "Punto B";
             this.puntoBToolStripMenuItem.Click += new System.EventHandler(this.puntoBToolStripMenuItem_Click);
             // 
             // puntoCToolStripMenuItem
             // 
             this.puntoCToolStripMenuItem.Name = "puntoCToolStripMenuItem";
-            this.puntoCToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.puntoCToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.puntoCToolStripMenuItem.Text = "Punto C";
+            this.puntoCToolStripMenuItem.Click += new System.EventHandler(this.puntoCToolStripMenuItem_Click);
             // 
             // imgIcono
             // 
@@ -157,8 +159,8 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(167, 127);
             this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "- Barrera Luciano (Legajo)\n\n- Floreano Micaela (72276)\n\n- Ribotta Franco (Lejago)" +
-    "\n\n- Rodriguez Alejandro (61142)\n\n- Videla Gimena (66984)";
+            this.richTextBox1.Text = "- Barrera Luciano (69920)\n\n- Floreano Micaela (72276)\n\n- Ribotta Franco (Lejago)\n" +
+    "\n- Rodriguez Alejandro (61142)\n\n- Videla Gimena (66984)";
             // 
             // Principal
             // 
