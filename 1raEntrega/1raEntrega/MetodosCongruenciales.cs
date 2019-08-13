@@ -25,7 +25,7 @@ namespace _1raEntrega
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             //Reiniciamos la lista
-            lstNumeros.Items.Clear();
+            listNumAl.Items.Clear();
             btnAgregar.Enabled = true;
 
             //Configuramos los valores iniciales
@@ -43,20 +43,40 @@ namespace _1raEntrega
 
             //Generamos lo primeros 20 numeros
             //Limpia la lista cada vez que se aprieta el boton generar
-            lstNumeros.Items.Clear();
+          
             listNumAl.Items.Clear();
-            int j = 0;
+
+            //Imprime el primer aleatorio
+            ListViewItem elementoListView;
+
+            string[] elementosFila = new string[2];
+
+            elementosFila[0] = "0";
+            elementosFila[1] = Math.Round(aleatorio, 4).ToString();
+            elementoListView = new ListViewItem(elementosFila);
+            listNumAl.Items.Add(elementoListView);
+
+            int j = 1;
             string item = "";
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 19; i++)
             {
                 item =j.ToString();
-                lstNumeros.Items.Add(aleatorio.ToString());
-                //listNumAl.Items.Add(item, aleatorio.ToString());
-                //listNumAl. Add(aleatorio.ToString());
+               
+                // se crea vector para almacenar los datos del ID item y el numero aleatorio
+                elementosFila = new string[2];
+
+                // se asignan valores al vector
+                elementosFila[0] = item;
+                elementosFila[1] = aleatorio.ToString();
+
+                //se agrega vector  a los items
+                elementoListView = new ListViewItem(elementosFila);
+                
+                //se calculan nuevos valores
                 aleatorio = Generador.generarAleatorioCongruencialMixto(ref x, a, m, c);
+                listNumAl.Items.Add(elementoListView);
                 j++;
 
-               
             }
         }
 
@@ -65,10 +85,23 @@ namespace _1raEntrega
             Close();
         }
 
+        
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             double aleatorio = Generador.generarAleatorioCongruencialMixto(ref x, a, m, c);
-            lstNumeros.Items.Add(aleatorio);
+            //listNumAl.Items.Add(aleatorio.ToString);
+
+            ListViewItem elementoListView;
+
+            string[] elementosFila = new string[2];
+
+            int cantItem =listNumAl.Items.Count;
+                
+            elementosFila[0] = cantItem.ToString();
+            elementosFila[1] = Math.Round(aleatorio, 4).ToString();
+            elementoListView = new ListViewItem(elementosFila);
+            listNumAl.Items.Add(elementoListView);
         }
     }
 }
