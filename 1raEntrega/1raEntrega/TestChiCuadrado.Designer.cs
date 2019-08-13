@@ -72,7 +72,7 @@
             // 
             // edtIntervalos
             // 
-            this.edtIntervalos.Location = new System.Drawing.Point(336, 25);
+            this.edtIntervalos.Location = new System.Drawing.Point(336, 23);
             this.edtIntervalos.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -103,7 +103,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(336, 277);
+            this.btnGenerar.Location = new System.Drawing.Point(344, 277);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 4;

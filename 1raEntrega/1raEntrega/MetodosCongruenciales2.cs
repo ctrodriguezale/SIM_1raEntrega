@@ -26,10 +26,9 @@ namespace _1raEntrega
         {
             x = (int) edtSemilla.Value;
             a = (int) edtA.Value;
-            c = (int) edtC.Value;
             m = (int) edtM.Value;
 
-                //Limpia la lista cada vez que se aprieta el boton generar
+            //Limpia la lista cada vez que se aprieta el boton generar
             lstNumeros.Items.Clear();
 
             //Se generan los 20 primeros nuemros
@@ -43,13 +42,15 @@ namespace _1raEntrega
 
         private void CalcularAleatoriosMetodoMultiplicativo()
         {
-            double aleatorio = x;
+            double aleatorio = ((double)x)/m;
+            //Imprime el primer aleatorio
+            lstNumeros.Items.Add(Math.Round(aleatorio, 4).ToString());
 
-            //Generamos lo primeros 20 numeros
-            for (int i = 0; i < 20; i++)
+            //Generamos lo 19 restantes
+            for (int i = 0; i < 19; i++)
             {
-                lstNumeros.Items.Add(aleatorio.ToString());
                 aleatorio = Generador.generarAleatorioCongruencialMultiplicativo(ref x, a, m);
+                lstNumeros.Items.Add(aleatorio.ToString());
             }
         }
 

@@ -21,28 +21,34 @@ namespace _1raEntrega
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             int x = (int)edtCantidad.Value;
+            int intervalos = (int)edtIntervalos.Value;
+            double[,] tablaFrecuencias;
+
             //Limpia la lista cada vez que se aprieta el boton generar
             lstAleatorios.Items.Clear();
-
             //Generamos un listado de numeros aleatorios
             List<double> listado = Generador.GenerarAleatorios(x);
             for (int i=0; i<listado.Count; i++)
             {
                 lstAleatorios.Items.Add(listado[i]);
             }
+
+            tablaFrecuencias = CalcularFrecuencias(listado, intervalos);
+            ExcelAPI api = new ExcelAPI("Test Chi Cuadrado");
+            api.completarTabla(tablaFrecuencias);
         }
 
-        public float[,] CalcularFrecuencias(List<float> numerosAleatorios, int cantIntervalos)
+        public double[,] CalcularFrecuencias(List<double> numerosAleatorios, int cantIntervalos)
         {
-            float[,] frecuencias =new float[3,cantIntervalos];
+            double[,] frecuencias = new double[4,cantIntervalos];
 
-            float valorMinimo = numerosAleatorios.Min();
-            float valorMaximo = numerosAleatorios.Max();
+            double valorMinimo = numerosAleatorios.Min();
+            double valorMaximo = numerosAleatorios.Max();
             //calcula la longitud de cada intervalo
-            float paso = (valorMaximo - valorMinimo) / cantIntervalos;
-
-            float minActual = valorMinimo;
-            float maxActual = valorMinimo;
+            double paso = (valorMaximo - valorMinimo) / cantIntervalos;
+            double esperado = numerosAleatorios.Count/cantIntervalos;
+            double minActual = valorMinimo;
+            double maxActual = valorMinimo;
             
             // armamos los intervalos de la tabla
             for (int i=0; i<cantIntervalos; i++)
@@ -51,10 +57,11 @@ namespace _1raEntrega
                 maxActual = minActual + paso;
                 frecuencias[1, i] = maxActual;
                 frecuencias[2, i] = 0;
-
+                frecuencias[3, i] = esperado;
+                
                 minActual = maxActual;
             }
-     
+
             //contamos las frecuencias. Por cada numero aleatorio
             for (int i=0; i<numerosAleatorios.Count; i++)
             {
@@ -69,7 +76,6 @@ namespace _1raEntrega
                     }
                 }
             }
-
             return frecuencias;
         }
 
