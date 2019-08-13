@@ -38,7 +38,6 @@
             this.edtA = new System.Windows.Forms.NumericUpDown();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.lstNumeros = new System.Windows.Forms.ListBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -175,15 +174,6 @@
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // lstNumeros
-            // 
-            this.lstNumeros.FormattingEnabled = true;
-            this.lstNumeros.Location = new System.Drawing.Point(32, 111);
-            this.lstNumeros.Name = "lstNumeros";
-            this.lstNumeros.Size = new System.Drawing.Size(147, 277);
-            this.lstNumeros.TabIndex = 24;
-            this.lstNumeros.TabStop = false;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.Enabled = false;
@@ -219,12 +209,22 @@
             this.listNumAl.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnItem,
             this.columnNumAl});
-            this.listNumAl.Location = new System.Drawing.Point(207, 111);
+            this.listNumAl.Location = new System.Drawing.Point(21, 111);
             this.listNumAl.Name = "listNumAl";
-            this.listNumAl.Size = new System.Drawing.Size(181, 277);
+            this.listNumAl.Size = new System.Drawing.Size(258, 277);
             this.listNumAl.TabIndex = 28;
             this.listNumAl.UseCompatibleStateImageBehavior = false;
-            this.listNumAl.View = System.Windows.Forms.View.Tile;
+            this.listNumAl.View = System.Windows.Forms.View.Details;
+            // 
+            // columnItem
+            // 
+            this.columnItem.Text = "ID";
+            this.columnItem.Width = 85;
+            // 
+            // columnNumAl
+            // 
+            this.columnNumAl.Text = "Número Aleatorio";
+            this.columnNumAl.Width = 108;
             // 
             // MetodosCongruenciales
             // 
@@ -235,7 +235,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.lstNumeros);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblM);
@@ -268,7 +267,6 @@
         private System.Windows.Forms.NumericUpDown edtA;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.ListBox lstNumeros;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
