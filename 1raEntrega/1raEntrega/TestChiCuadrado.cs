@@ -40,7 +40,7 @@ namespace _1raEntrega
 
         public double[,] CalcularFrecuencias(List<double> numerosAleatorios, int cantIntervalos)
         {
-            double[,] frecuencias = new double[4,cantIntervalos];
+            double[,] frecuencias = new double[5,cantIntervalos];
 
             double valorMinimo = numerosAleatorios.Min();
             double valorMaximo = numerosAleatorios.Max();
@@ -76,8 +76,40 @@ namespace _1raEntrega
                     }
                 }
             }
+
+            calcularChiCuadrado(frecuencias);
+
             return frecuencias;
         }
+
+        public void calcularChiCuadrado(double[,] datos)
+        {
+            for(int i = 0; i>datos.GetLength(1); i++)
+            {
+                datos[4, i] = calcularDesviacion((int)datos[2, i], (int)datos[3, i]);
+            }
+        }
+
+        public double sumatoriaChiCuadrado(double[,] datos)
+        {
+            double suma = 0;
+
+            for (int i = 0; i > datos.GetLength(1); i++)
+            {
+                suma += datos[4, i];
+            }
+
+            return suma;
+        }
+
+        public double calcularDesviacion(int frecuencia, int esperado)
+        {
+            double chiCuadrado = (double)((frecuencia - esperado) ^ 2);
+            chiCuadrado = (chiCuadrado) / esperado;
+
+            return chiCuadrado;
+        }
+        
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {

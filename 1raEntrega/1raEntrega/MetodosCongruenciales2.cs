@@ -14,7 +14,6 @@ namespace _1raEntrega
     {
         int x;
         int a;
-        int c;
         int m;
 
         public MetodosCongruenciales2()
