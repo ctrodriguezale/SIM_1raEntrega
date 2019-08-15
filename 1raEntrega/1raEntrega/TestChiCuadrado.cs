@@ -104,7 +104,7 @@ namespace _1raEntrega
 
         public void calcularChiCuadrado(double[,] datos)
         {
-            for(int i = 0; i>datos.GetLength(1); i++)
+            for (int i = 0; i>datos.GetLength(1); i++)
             {
                 datos[4, i] = calcularDesviacion((int)datos[2, i], (int)datos[3, i]);
             }
@@ -124,7 +124,8 @@ namespace _1raEntrega
 
         public double calcularDesviacion(int frecuencia, int esperado)
         {
-            double chiCuadrado = (double)((frecuencia - esperado) ^ 2);
+            int cuadrado = (frecuencia - esperado)^2;
+            double chiCuadrado = (cuadrado);
             chiCuadrado = (chiCuadrado) / esperado;
             return chiCuadrado;
         }
