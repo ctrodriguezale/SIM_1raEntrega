@@ -12,7 +12,7 @@ namespace _1raEntrega
 {
     public partial class TestChiCuadrado : Form
     {
-        
+
         public TestChiCuadrado()
         {
             InitializeComponent();
@@ -23,19 +23,39 @@ namespace _1raEntrega
             int x = (int)edtCantidad.Value;
             int intervalos = (int)edtIntervalos.Value;
             double[,] tablaFrecuencias;
+            double[,] tablaAleatorio;
+
+            ExcelAPI api = new ExcelAPI("Test Chi Cuadrado");
 
             //Limpia la lista cada vez que se aprieta el boton generar
             lstAleatorios.Items.Clear();
             //Generamos un listado de numeros aleatorios
             List<double> listado = Generador.GenerarAleatorios(x);
-            for (int i=0; i<listado.Count; i++)
-            {
-                lstAleatorios.Items.Add(listado[i]);
-            }
+            //for (int i = 0; i < listado.Count; i++)
+            //{
+            //    lstAleatorios.Items.Add(listado[i]);
+            //}
+
+            tablaAleatorio = CalcularAleatorio(x, listado);
 
             tablaFrecuencias = CalcularFrecuencias(listado, intervalos);
-            ExcelAPI api = new ExcelAPI("Test Chi Cuadrado");
-            api.completarTabla(tablaFrecuencias);
+
+            api.completarTablas(tablaAleatorio,tablaFrecuencias);
+            
+        }
+
+        public double[,] CalcularAleatorio(int cant, List<double> numerosAleatorios)
+        {
+            double[,] tablaAlea = new double[2, cant];
+            //List<double> lista = numerosAleatorios;
+
+            for (int i = 0; i < numerosAleatorios.Count; i++)
+            {
+                
+                tablaAlea[1, i] = numerosAleatorios[i];
+            }
+
+            return tablaAlea;
         }
 
         public double[,] CalcularFrecuencias(List<double> numerosAleatorios, int cantIntervalos)
@@ -106,7 +126,6 @@ namespace _1raEntrega
         {
             double chiCuadrado = (double)((frecuencia - esperado) ^ 2);
             chiCuadrado = (chiCuadrado) / esperado;
-
             return chiCuadrado;
         }
         

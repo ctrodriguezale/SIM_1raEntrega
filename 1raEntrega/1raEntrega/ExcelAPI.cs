@@ -38,32 +38,33 @@ namespace _1raEntrega
         }
 
 
-    /*    public void crearCabecera(string titulo)
-        {
-            //Creamos el titulo
-            hoja.Range["A1:E1"].Merge();
-            hoja.Range["A1:E1"].Value = titulo;
-            hoja.Range["A1:E1"].Font.Bold = true;
-            // La cuarta línea signa un Size a titulo de 15.
-            hoja.Range["A1:E1"].Font.Size = 15;
+        /*    public void crearCabecera(string titulo)
+            {
+                //Creamos el titulo
+                hoja.Range["A1:E1"].Merge();
+                hoja.Range["A1:E1"].Value = titulo;
+                hoja.Range["A1:E1"].Font.Bold = true;
+                // La cuarta línea signa un Size a titulo de 15.
+                hoja.Range["A1:E1"].Font.Size = 15;
 
-            Range celda = hoja.Range["A3",Type.Missing];
-            celda.Value = "Orden";
+                Range celda = hoja.Range["A3",Type.Missing];
+                celda.Value = "Orden";
 
-            celda = hoja.Range["B3", Type.Missing];
-            celda.Value = "Min";
+                celda = hoja.Range["B3", Type.Missing];
+                celda.Value = "Min";
 
-            celda = hoja.Range["C3", Type.Missing];
-            celda.Value = "Max";
+                celda = hoja.Range["C3", Type.Missing];
+                celda.Value = "Max";
 
-            celda = hoja.Range["D3", Type.Missing];
-            celda.Value = "O(i)";
+                celda = hoja.Range["D3", Type.Missing];
+                celda.Value = "O(i)";
 
-            celda = hoja.Range["E3", Type.Missing];
-            celda.Value = "E(i)";
-        }
-        */
-        public void completarTabla(double[,] datos)
+                celda = hoja.Range["E3", Type.Missing];
+                celda.Value = "E(i)";
+            }
+            */
+
+        public void completarTablas(double[,] tabla1, double[,] tabla2)
         {
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
@@ -74,54 +75,48 @@ namespace _1raEntrega
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
-            xlWorkSheet.Range["A1:E1"].Merge();
-            xlWorkSheet.Range["A1:E1"].Value = "Chi Cuadrado";
-            xlWorkSheet.Range["A1:E1"].Font.Size = 15;
-            xlWorkSheet.Range["A1:E1"].HorizontalAlignment = HorizontalAlignment.Center;
+            //Completa tabla de numeros aleatorios
+            xlWorkSheet.Range["D1:H1"].Merge();
+            xlWorkSheet.Range["D1:H1"].Value = "Chi Cuadrado";
+            xlWorkSheet.Range["D1:H1"].Font.Size = 15;
+            xlWorkSheet.Range["D1:H1"].HorizontalAlignment = HorizontalAlignment.Center;
 
-            xlWorkSheet.Cells[3, 2] = "Minimo";
-            xlWorkSheet.Cells[3, 3] = "Maximo";
-            xlWorkSheet.Cells[3, 4] = "Frecuencia";
-            xlWorkSheet.Cells[3, 5] = "Esperado";
-            xlWorkSheet.Cells[3, 6] = "Esperado";
-            //xlWorkSheet.Cells[3, 6] = "Student3";
+            xlWorkSheet.Cells[3, 1] = "N";
+            xlWorkSheet.Cells[3, 2] = "Aleatorio";
 
-            for (int i = 0; i < datos.GetLength(1); i++)
+            for (int i = 0; i < tabla1.GetLength(1); i++)
             {
-                xlWorkSheet.Cells[i+4, "A"] = i + 1;
-                xlWorkSheet.Cells[i+4, "B"] = datos[0,i];
-                xlWorkSheet.Cells[i+4, "C"] = datos[1,i];
-                xlWorkSheet.Cells[i+4, "D"] = datos[2,i];
-                xlWorkSheet.Cells[i+4, "E"] = datos[3,i];
-                xlWorkSheet.Cells[i+4, "F"] = datos[4,i];
+                xlWorkSheet.Cells[i + 4, "A"] = i + 1;
+                xlWorkSheet.Cells[i + 4, "B"] = tabla1[0, i];
+
             }
-            /*
-            //add data 
-            xlWorkSheet.Cells[1, 1] = "";
-            xlWorkSheet.Cells[1, 2] = "Student1";
-            xlWorkSheet.Cells[1, 3] = "Student2";
-            xlWorkSheet.Cells[1, 4] = "Student3";
 
-            xlWorkSheet.Cells[2, 1] = "Term1";
-            xlWorkSheet.Cells[2, 2] = "80";
-            xlWorkSheet.Cells[2, 3] = "65";
-            xlWorkSheet.Cells[2, 4] = "45";
+            xlWorkSheet.Range["B:B"].NumberFormat = "0.0000";
+            xlWorkSheet.Range["E:E"].NumberFormat = "0.0000";
+            xlWorkSheet.Range["F:F"].NumberFormat = "0.0000";
 
-            xlWorkSheet.Cells[3, 1] = "Term2";
-            xlWorkSheet.Cells[3, 2] = "78";
-            xlWorkSheet.Cells[3, 3] = "72";
-            xlWorkSheet.Cells[3, 4] = "60";
+            //Completa tabla de frecuencia
+            xlWorkSheet.Range["E1:H1"].Merge();
+            xlWorkSheet.Range["E1:H1"].Value = "Chi Cuadrado";
+            xlWorkSheet.Range["E1:H1"].Font.Size = 15;
+            xlWorkSheet.Range["E1:H1"].HorizontalAlignment = HorizontalAlignment.Center;
 
-            xlWorkSheet.Cells[4, 1] = "Term3";
-            xlWorkSheet.Cells[4, 2] = "82";
-            xlWorkSheet.Cells[4, 3] = "80";
-            xlWorkSheet.Cells[4, 4] = "65";
+            xlWorkSheet.Cells[3, 5] = "Minimo";
+            xlWorkSheet.Cells[3, 6] = "Maximo";
+            xlWorkSheet.Cells[3, 7] = "Frecuencia";
+            xlWorkSheet.Cells[3, 8] = "Esperado Teorico";
+            xlWorkSheet.Cells[3, 9] = "Esperado Calculado";
 
-            xlWorkSheet.Cells[5, 1] = "Term4";
-            xlWorkSheet.Cells[5, 2] = "75";
-            xlWorkSheet.Cells[5, 3] = "82";
-            xlWorkSheet.Cells[5, 4] = "68";
-            */
+
+            for (int i = 0; i < tabla2.GetLength(1); i++)
+            {
+                xlWorkSheet.Cells[i + 4, "D"] = i + 1;
+                xlWorkSheet.Cells[i + 4, "E"] = tabla2[0, i];
+                xlWorkSheet.Cells[i + 4, "F"] = tabla2[1, i];
+                xlWorkSheet.Cells[i + 4, "G"] = tabla2[2, i];
+                xlWorkSheet.Cells[i + 4, "H"] = tabla2[3, i];
+                xlWorkSheet.Cells[i + 4, "I"] = tabla2[4, i];
+            }
 
             Excel.Range chartRange;
 
@@ -129,11 +124,22 @@ namespace _1raEntrega
             Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
             Excel.Chart chartPage = myChart.Chart;
 
-            chartRange = xlWorkSheet.get_Range("A3", "E13");
+            chartRange = xlWorkSheet.get_Range("H3", "I13");
+            chartPage.HasTitle = true;
+            chartPage.ChartTitle.Caption = "Chi Cuadrado de los Números Aleatorios Generados";
+
             chartPage.SetSourceData(chartRange, misValue);
             chartPage.ChartType = Excel.XlChartType.xlColumnClustered;
 
-       //     xlWorkBook.SaveAs("csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            chartPage.HasLegend = true;
+            chartPage.ShowDataLabelsOverMaximum = true;
+
+
+            //Crea Excel 
+
+
+
+            //     xlWorkBook.SaveAs("csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlApp.Visible = true;
             //xlWorkBook.Close(true, misValue, misValue);
             //xlApp.Quit();
@@ -142,9 +148,90 @@ namespace _1raEntrega
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
 
-            MessageBox.Show("Excel file created , you can find the file c:\\csharp.net-informations.xls");
-    
         }
+
+    //public void completarTabla(double[,] datos)
+    //    {
+    //        Excel.Application xlApp;
+    //        Excel.Workbook xlWorkBook;
+    //        Excel.Worksheet xlWorkSheet;
+    //        object misValue = System.Reflection.Missing.Value;
+
+    //        xlApp = new Excel.Application();
+    //        xlWorkBook = xlApp.Workbooks.Add(misValue);
+    //        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+    //        xlWorkSheet.Range["D1:H1"].Merge();
+    //        xlWorkSheet.Range["D1:H1"].Value = "Chi Cuadrado";
+    //        xlWorkSheet.Range["D1:H1"].Font.Size = 15;
+    //        xlWorkSheet.Range["D1:H1"].HorizontalAlignment = HorizontalAlignment.Center;
+
+    //        xlWorkSheet.Cells[3, 5] = "Minimo";
+    //        xlWorkSheet.Cells[3, 6] = "Maximo";
+    //        xlWorkSheet.Cells[3, 7] = "Frecuencia";
+    //        xlWorkSheet.Cells[3, 8] = "Esperado";
+    //        xlWorkSheet.Cells[3, 9] = "Esperado";
+            
+
+    //        for (int i = 0; i < datos.GetLength(1); i++)
+    //        {
+    //            xlWorkSheet.Cells[i+4, "D"] = i + 1;
+    //            xlWorkSheet.Cells[i+4, "E"] = datos[0,i];
+    //            xlWorkSheet.Cells[i+4, "F"] = datos[1,i];
+    //            xlWorkSheet.Cells[i+4, "G"] = datos[2,i];
+    //            xlWorkSheet.Cells[i+4, "H"] = datos[3,i];
+    //            xlWorkSheet.Cells[i+4, "I"] = datos[4,i];
+    //        }
+    //        /*
+    //        //add data 
+    //        xlWorkSheet.Cells[1, 1] = "";
+    //        xlWorkSheet.Cells[1, 2] = "Student1";
+    //        xlWorkSheet.Cells[1, 3] = "Student2";
+    //        xlWorkSheet.Cells[1, 4] = "Student3";
+
+    //        xlWorkSheet.Cells[2, 1] = "Term1";
+    //        xlWorkSheet.Cells[2, 2] = "80";
+    //        xlWorkSheet.Cells[2, 3] = "65";
+    //        xlWorkSheet.Cells[2, 4] = "45";
+
+    //        xlWorkSheet.Cells[3, 1] = "Term2";
+    //        xlWorkSheet.Cells[3, 2] = "78";
+    //        xlWorkSheet.Cells[3, 3] = "72";
+    //        xlWorkSheet.Cells[3, 4] = "60";
+
+    //        xlWorkSheet.Cells[4, 1] = "Term3";
+    //        xlWorkSheet.Cells[4, 2] = "82";
+    //        xlWorkSheet.Cells[4, 3] = "80";
+    //        xlWorkSheet.Cells[4, 4] = "65";
+
+    //        xlWorkSheet.Cells[5, 1] = "Term4";
+    //        xlWorkSheet.Cells[5, 2] = "75";
+    //        xlWorkSheet.Cells[5, 3] = "82";
+    //        xlWorkSheet.Cells[5, 4] = "68";
+    //        */
+
+    //        Excel.Range chartRange;
+
+    //        Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
+    //        Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
+    //        Excel.Chart chartPage = myChart.Chart;
+
+    //        chartRange = xlWorkSheet.get_Range("A3", "E13");
+    //        chartPage.SetSourceData(chartRange, misValue);
+    //        chartPage.ChartType = Excel.XlChartType.xlColumnClustered;
+
+    //   //     xlWorkBook.SaveAs("csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+    //        xlApp.Visible = true;
+    //        //xlWorkBook.Close(true, misValue, misValue);
+    //        //xlApp.Quit();
+
+    //        releaseObject(xlWorkSheet);
+    //        releaseObject(xlWorkBook);
+    //        releaseObject(xlApp);
+
+    //        MessageBox.Show("Excel file created , you can find the file c:\\csharp.net-informations.xls");
+    
+    //    }
         //
         private void releaseObject(object obj)
         {
@@ -162,14 +249,7 @@ namespace _1raEntrega
             {
                 GC.Collect();
             }
-        }
-
-
-
-
-
-
-            
+        } 
         
     }
 }
