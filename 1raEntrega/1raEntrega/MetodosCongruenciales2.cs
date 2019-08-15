@@ -23,12 +23,13 @@ namespace _1raEntrega
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            x = (int) edtSemilla.Value;
-            a = (int) edtA.Value;
-            m = (int) edtM.Value;
+            x = (int)edtSemilla.Value;
+            a = (int)edtA.Value;
+            m = (int)edtM.Value;
 
-            //Limpia la lista cada vez que se aprieta el boton generar
-            lstNumeros.Items.Clear();
+            //Reiniciamos la lista
+            listNumAl.Items.Clear();
+            btnAgregar.Enabled = true;
 
             //Se generan los 20 primeros nuemros
             CalcularAleatoriosMetodoMultiplicativo();
@@ -41,27 +42,64 @@ namespace _1raEntrega
 
         private void CalcularAleatoriosMetodoMultiplicativo()
         {
-            double aleatorio = ((double)x)/m;
-            //Imprime el primer aleatorio
-            lstNumeros.Items.Add(Math.Round(aleatorio, 4).ToString());
+            double aleatorio = ((double)x) / m;
 
-            //Generamos lo 19 restantes
+            //Generamos lo primeros 20 numeros
+            //Limpia la lista cada vez que se aprieta el boton generar
+
+            listNumAl.Items.Clear();
+
+            //Imprime el primer aleatorio
+            ListViewItem elementoListView;
+
+            string[] elementosFila = new string[2];
+
+            elementosFila[0] = "0";
+            elementosFila[1] = Math.Round(aleatorio, 4).ToString();
+            elementoListView = new ListViewItem(elementosFila);
+            listNumAl.Items.Add(elementoListView);
+
+            int j = 1;
+            string item = "";
             for (int i = 0; i < 19; i++)
             {
+                item = j.ToString();
+
+                // se crea vector para almacenar los datos del ID item y el numero aleatorio
+                elementosFila = new string[2];
+
+                // se asignan valores al vector
+                elementosFila[0] = item;
+                elementosFila[1] = aleatorio.ToString();
+
+                //se agrega vector  a los items
+                elementoListView = new ListViewItem(elementosFila);
+
+                //se calculan nuevos valores
                 aleatorio = Generador.generarAleatorioCongruencialMultiplicativo(ref x, a, m);
-                lstNumeros.Items.Add(aleatorio.ToString());
+                listNumAl.Items.Add(elementoListView);
+                j++;
+
             }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             double aleatorio = Generador.generarAleatorioCongruencialMultiplicativo(ref x, a, m);
-            lstNumeros.Items.Add(aleatorio.ToString());
+
+            //listNumAl.Items.Add(aleatorio.ToString);
+
+            ListViewItem elementoListView;
+
+            string[] elementosFila = new string[2];
+
+            int cantItem = listNumAl.Items.Count;
+
+            elementosFila[0] = cantItem.ToString();
+            elementosFila[1] = Math.Round(aleatorio, 4).ToString();
+            elementoListView = new ListViewItem(elementosFila);
+            listNumAl.Items.Add(elementoListView);
         }
 
-        private void btnCerrar_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }

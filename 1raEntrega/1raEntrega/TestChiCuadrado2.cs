@@ -44,18 +44,7 @@ namespace _1raEntrega
                 aleatorio = Generador.generarAleatorioCongruencialMixto(ref x, a, m, c);
             }
         }
-        //private void btnGenerar_Click(object sender, EventArgs e)
-        //{
-            
-           
-
-        //    //Generamos un listado de numeros aleatorios
-        //    List<double> listado = Generador.generarAleatorioCongruencialMixto(ref x, 17, 100, 5000);
-        //    for (int i = 0; i < listado.Count; i++)
-        //    {
-        //        lstAleatorios.Items.Add(listado[i]);
-        //    }
-        //}
+      
 
         public float[,] CalcularFrecuencias(List<float> numerosAleatorios, int cantIntervalos)
         {
