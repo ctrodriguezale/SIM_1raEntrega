@@ -9,18 +9,25 @@ namespace _1raEntrega
     class Generador
     {
         //Generador de numeros aleatorios provisto por el Lenguaje
-        public static List<double> GenerarAleatorios(int cantidad)
+        public static double[] GenerarAleatorios(int cantidad)
         {
-            List<double> listaAleatorios = new List<double>();
+            double[] listaAleatorios = new double[cantidad];
 
             Random aleatorio = new Random(); ;
 
             for (int i = 0; i<cantidad; i++)
             {  
-                listaAleatorios.Add(aleatorio.NextDouble());
+                listaAleatorios[i] = Math.Round(aleatorio.NextDouble(), 4);
             }
 
             return listaAleatorios;
+        }
+
+        public static double GenerarAleatorio()
+        {
+            Random aleatorio = new Random(); ;
+
+            return Math.Round(aleatorio.NextDouble(), 4);
         }
 
         //Metodo Congruencial Mixto para generar numeros aleatorios

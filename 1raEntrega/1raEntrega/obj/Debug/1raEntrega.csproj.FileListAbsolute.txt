@@ -12,3 +12,16 @@ E:\Documentos\Facultad\IV-SIM\Repo\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1r
 E:\Documentos\Facultad\IV-SIM\Repo\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.csproj.CoreCompileInputs.cache
 E:\Documentos\Facultad\IV-SIM\Repo\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.exe
 E:\Documentos\Facultad\IV-SIM\Repo\1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.pdb
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\bin\Debug\1raEntrega.exe.config
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.exe
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.pdb
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\bin\Debug\1raEntrega.exe
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\bin\Debug\1raEntrega.pdb
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.csprojResolveAssemblyReference.cache
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.MetodosCongruenciales.resources
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.MetodosCongruenciales2.resources
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.Principal.resources
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.Properties.Resources.resources
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.TestChiCuadrado.resources
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\_1raEntrega.TestChiCuadrado2.resources
+E:\Documentos\Alejandro\facultad\2019\SIM\Repo\SIM_1raEntrega\1raEntrega\1raEntrega\obj\Debug\1raEntrega.csproj.GenerateResource.Cache

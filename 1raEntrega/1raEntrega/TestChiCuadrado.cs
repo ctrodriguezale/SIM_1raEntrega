@@ -23,42 +23,25 @@ namespace _1raEntrega
             int x = (int)edtCantidad.Value;
             int intervalos = (int)edtIntervalos.Value;
             double[,] tablaFrecuencias;
-            double[,] tablaAleatorio;
+            double[] tablaAleatorios;
+            double valorChi = 0;
 
             ExcelAPI api = new ExcelAPI("Test Chi Cuadrado");
 
-            //Limpia la lista cada vez que se aprieta el boton generar
-            lstAleatorios.Items.Clear();
             //Generamos un listado de numeros aleatorios
-            List<double> listado = Generador.GenerarAleatorios(x);
+            tablaAleatorios = Generador.GenerarAleatorios(x);
             //for (int i = 0; i < listado.Count; i++)
             //{
             //    lstAleatorios.Items.Add(listado[i]);
             //}
+            
+            tablaFrecuencias = CalcularFrecuencias(tablaAleatorios, intervalos, ref valorChi);
 
-            tablaAleatorio = CalcularAleatorio(x, listado);
-
-            tablaFrecuencias = CalcularFrecuencias(listado, intervalos);
-
-            api.completarTablas(tablaAleatorio,tablaFrecuencias);
+            api.completarTablas(tablaAleatorios,tablaFrecuencias, valorChi);
             
         }
 
-        public double[,] CalcularAleatorio(int cant, List<double> numerosAleatorios)
-        {
-            double[,] tablaAlea = new double[2, cant];
-            //List<double> lista = numerosAleatorios;
-
-            for (int i = 0; i < numerosAleatorios.Count; i++)
-            {
-                
-                tablaAlea[1, i] = numerosAleatorios[i];
-            }
-
-            return tablaAlea;
-        }
-
-        public double[,] CalcularFrecuencias(List<double> numerosAleatorios, int cantIntervalos)
+        public double[,] CalcularFrecuencias(double[] numerosAleatorios, int cantIntervalos, ref double chi)
         {
             double[,] frecuencias = new double[5,cantIntervalos];
 
@@ -66,7 +49,7 @@ namespace _1raEntrega
             double valorMaximo = numerosAleatorios.Max();
             //calcula la longitud de cada intervalo
             double paso = (valorMaximo - valorMinimo) / cantIntervalos;
-            double esperado = numerosAleatorios.Count/cantIntervalos;
+            double esperado = ((double)numerosAleatorios.Length )/ cantIntervalos;
             double minActual = valorMinimo;
             double maxActual = valorMinimo;
             
@@ -83,7 +66,7 @@ namespace _1raEntrega
             }
 
             //contamos las frecuencias. Por cada numero aleatorio
-            for (int i=0; i<numerosAleatorios.Count; i++)
+            for (int i=0; i<numerosAleatorios.Length; i++)
             {
                 //validamos se encuentre dentro de un intervalo
                 for(int j=0; j<cantIntervalos; j++)
@@ -98,13 +81,13 @@ namespace _1raEntrega
             }
 
             calcularChiCuadrado(frecuencias);
-
+            chi = sumatoriaChiCuadrado(frecuencias);
             return frecuencias;
         }
 
         public void calcularChiCuadrado(double[,] datos)
         {
-            for (int i = 0; i>datos.GetLength(1); i++)
+            for (int i = 0; i<datos.GetLength(1); i++)
             {
                 datos[4, i] = calcularDesviacion((int)datos[2, i], (int)datos[3, i]);
             }
@@ -114,7 +97,7 @@ namespace _1raEntrega
         {
             double suma = 0;
 
-            for (int i = 0; i > datos.GetLength(1); i++)
+            for (int i = 0; i < datos.GetLength(1); i++)
             {
                 suma += datos[4, i];
             }
@@ -124,9 +107,8 @@ namespace _1raEntrega
 
         public double calcularDesviacion(int frecuencia, int esperado)
         {
-            int cuadrado = (frecuencia - esperado)^2;
-            double chiCuadrado = (cuadrado);
-            chiCuadrado = (chiCuadrado) / esperado;
+            double potencia   = Math.Pow((frecuencia - esperado), 2);
+            double chiCuadrado = (potencia/esperado);
             return chiCuadrado;
         }
         

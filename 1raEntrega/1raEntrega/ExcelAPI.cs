@@ -28,7 +28,7 @@ namespace _1raEntrega
 
 
 
-        public void completarTablas(double[,] tabla1, double[,] tabla2)
+        public void completarTablas(double[] aleatorios, double[,] frecuencias, double chi)
         {
             //Completa tabla de numeros aleatorios
             xlWorkSheet.Range["D1:H1"].Merge();
@@ -39,16 +39,16 @@ namespace _1raEntrega
             xlWorkSheet.Cells[3, 1] = "N";
             xlWorkSheet.Cells[3, 2] = "Aleatorio";
 
-            for (int i = 0; i < tabla1.GetLength(1); i++)
-            {
-                xlWorkSheet.Cells[i + 4, "A"] = i + 1;
-                xlWorkSheet.Cells[i + 4, "B"] = tabla1[0, i];
-            }
-
             //Formatea los campos numericos a 4 decimales
             xlWorkSheet.Range["B:B"].NumberFormat = "0.0000";
             xlWorkSheet.Range["E:E"].NumberFormat = "0.0000";
             xlWorkSheet.Range["F:F"].NumberFormat = "0.0000";
+
+            for (int i = 0; i < aleatorios.Length; i++)
+            {
+                xlWorkSheet.Cells[i + 4, "A"] = i + 1;
+                xlWorkSheet.Cells[i + 4, "B"] = aleatorios[i];
+            }
 
             //cabecera de la tabla
             xlWorkSheet.Cells[3, 5] = "Mínimo";
@@ -58,15 +58,20 @@ namespace _1raEntrega
             xlWorkSheet.Cells[3, 9] = "(O-E)^2/E";
 
             //Cargamos los datos
-            for (int i = 0; i < tabla2.GetLength(1); i++)
+            for (int i = 0; i < frecuencias.GetLength(1); i++)
             {
                 xlWorkSheet.Cells[i + 4, "D"] = i + 1;
-                xlWorkSheet.Cells[i + 4, "E"] = tabla2[0, i];
-                xlWorkSheet.Cells[i + 4, "F"] = tabla2[1, i];
-                xlWorkSheet.Cells[i + 4, "G"] = tabla2[2, i];
-                xlWorkSheet.Cells[i + 4, "H"] = tabla2[3, i];
-                xlWorkSheet.Cells[i + 4, "I"] = tabla2[4, i];
+                xlWorkSheet.Cells[i + 4, "E"] = frecuencias[0, i];
+                xlWorkSheet.Cells[i + 4, "F"] = frecuencias[1, i];
+                xlWorkSheet.Cells[i + 4, "G"] = frecuencias[2, i];
+                xlWorkSheet.Cells[i + 4, "H"] = frecuencias[3, i];
+                xlWorkSheet.Cells[i + 4, "I"] = frecuencias[4, i];
             }
+            //Coloca el resultado final
+            xlWorkSheet.Cells[frecuencias.GetLength(1) + 4, "H"].value = "X^2";
+            xlWorkSheet.Cells[frecuencias.GetLength(1) + 4, "I"].value = chi;
+
+
 
             Excel.Range chartRange;
 
