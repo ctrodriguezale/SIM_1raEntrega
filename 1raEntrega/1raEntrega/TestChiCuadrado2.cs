@@ -149,51 +149,5 @@ namespace _1raEntrega
             return r__aleatorio;
         }
 
-
-        //public float[,] CalcularFrecuencias(List<float> numerosAleatorios, int cantIntervalos)
-        //{
-        //    float[,] frecuencias = new float[3, cantIntervalos];
-
-        //    float valorMinimo = numerosAleatorios.Min();
-        //    float valorMaximo = numerosAleatorios.Max();
-        //    //calcula la longitud de cada intervalo
-        //    float paso = (valorMaximo - valorMinimo) / cantIntervalos;
-
-        //    float minActual = valorMinimo;
-        //    float maxActual = valorMinimo;
-
-        //    // armamos los intervalos de la tabla
-        //    for (int i = 0; i < cantIntervalos; i++)
-        //    {
-        //        frecuencias[0, i] = minActual;
-        //        maxActual = minActual + paso;
-        //        frecuencias[1, i] = maxActual;
-        //        frecuencias[2, i] = 0;
-
-        //        minActual = maxActual;
-        //    }
-
-        //    //contamos las frecuencias. Por cada numero aleatorio
-        //    for (int i = 0; i < numerosAleatorios.Count; i++)
-        //    {
-        //        //validamos se encuentre dentro de un intervalo
-        //        for (int j = 0; j < cantIntervalos; j++)
-        //        {
-        //            //si esta dentro del intervalo actual, incrementamos el contador y salimos del bucle
-        //            if (numerosAleatorios[i] < frecuencias[1, j])
-        //            {
-        //                frecuencias[2, j]++;
-        //                break;
-        //            }
-        //        }
-        //    }
-
-        //    return frecuencias;
-        //}
-
-        //private void btnCerrar_Click(object sender, EventArgs e)
-        //{
-        //    Close();
-        //}
     }
 }

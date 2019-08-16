@@ -37,7 +37,7 @@ namespace _1raEntrega
             
             tablaFrecuencias = CalcularFrecuencias(tablaAleatorios, intervalos, ref valorChi);
 
-            api.completarTablas(tablaAleatorios,tablaFrecuencias, valorChi);
+            api.completarTablas(tablaAleatorios,tablaFrecuencias, valorChi, intervalos);
             
         }
 
@@ -116,6 +116,11 @@ namespace _1raEntrega
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void TestChiCuadrado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,7 +33,6 @@
             this.edtIntervalos = new System.Windows.Forms.NumericUpDown();
             this.lblIntervalos = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.lstAleatorios = new System.Windows.Forms.ListBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.edtCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).BeginInit();
@@ -42,7 +41,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(12, 25);
+            this.lblCantidad.Location = new System.Drawing.Point(39, 79);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(97, 13);
             this.lblCantidad.TabIndex = 0;
@@ -50,7 +49,7 @@
             // 
             // edtCantidad
             // 
-            this.edtCantidad.Location = new System.Drawing.Point(115, 23);
+            this.edtCantidad.Location = new System.Drawing.Point(142, 77);
             this.edtCantidad.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -72,7 +71,7 @@
             // 
             // edtIntervalos
             // 
-            this.edtIntervalos.Location = new System.Drawing.Point(336, 23);
+            this.edtIntervalos.Location = new System.Drawing.Point(363, 77);
             this.edtIntervalos.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -95,7 +94,7 @@
             // lblIntervalos
             // 
             this.lblIntervalos.AutoSize = true;
-            this.lblIntervalos.Location = new System.Drawing.Point(277, 25);
+            this.lblIntervalos.Location = new System.Drawing.Point(304, 79);
             this.lblIntervalos.Name = "lblIntervalos";
             this.lblIntervalos.Size = new System.Drawing.Size(53, 13);
             this.lblIntervalos.TabIndex = 2;
@@ -103,7 +102,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(344, 277);
+            this.btnGenerar.Location = new System.Drawing.Point(316, 237);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 4;
@@ -111,17 +110,9 @@
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // lstAleatorios
-            // 
-            this.lstAleatorios.FormattingEnabled = true;
-            this.lstAleatorios.Location = new System.Drawing.Point(15, 62);
-            this.lstAleatorios.Name = "lstAleatorios";
-            this.lstAleatorios.Size = new System.Drawing.Size(182, 212);
-            this.lstAleatorios.TabIndex = 6;
-            // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(425, 277);
+            this.btnCerrar.Location = new System.Drawing.Point(397, 237);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 7;
@@ -133,9 +124,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 312);
+            this.ClientSize = new System.Drawing.Size(512, 290);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.lstAleatorios);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.edtIntervalos);
             this.Controls.Add(this.lblIntervalos);
@@ -143,6 +133,7 @@
             this.Controls.Add(this.lblCantidad);
             this.Name = "TestChiCuadrado";
             this.Text = "Test Chi Cuadrado con Generador Propio del Lenguaje";
+            this.Load += new System.EventHandler(this.TestChiCuadrado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edtCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).EndInit();
             this.ResumeLayout(false);
@@ -157,7 +148,6 @@
         private System.Windows.Forms.NumericUpDown edtIntervalos;
         private System.Windows.Forms.Label lblIntervalos;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.ListBox lstAleatorios;
         private System.Windows.Forms.Button btnCerrar;
     }
 }
