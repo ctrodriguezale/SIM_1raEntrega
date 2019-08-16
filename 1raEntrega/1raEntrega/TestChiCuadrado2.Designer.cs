@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.lstAleatorios = new System.Windows.Forms.ListBox();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.edtIntervalos = new System.Windows.Forms.NumericUpDown();
             this.lblIntervalos = new System.Windows.Forms.Label();
@@ -41,7 +40,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(425, 273);
+            this.btnCerrar.Location = new System.Drawing.Point(387, 248);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 14;
@@ -49,17 +48,9 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lstAleatorios
-            // 
-            this.lstAleatorios.FormattingEnabled = true;
-            this.lstAleatorios.Location = new System.Drawing.Point(15, 58);
-            this.lstAleatorios.Name = "lstAleatorios";
-            this.lstAleatorios.Size = new System.Drawing.Size(182, 212);
-            this.lstAleatorios.TabIndex = 13;
-            // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(336, 273);
+            this.btnGenerar.Location = new System.Drawing.Point(298, 248);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 12;
@@ -69,7 +60,7 @@
             // 
             // edtIntervalos
             // 
-            this.edtIntervalos.Location = new System.Drawing.Point(336, 21);
+            this.edtIntervalos.Location = new System.Drawing.Point(353, 90);
             this.edtIntervalos.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -92,7 +83,7 @@
             // lblIntervalos
             // 
             this.lblIntervalos.AutoSize = true;
-            this.lblIntervalos.Location = new System.Drawing.Point(277, 21);
+            this.lblIntervalos.Location = new System.Drawing.Point(294, 90);
             this.lblIntervalos.Name = "lblIntervalos";
             this.lblIntervalos.Size = new System.Drawing.Size(53, 13);
             this.lblIntervalos.TabIndex = 10;
@@ -100,7 +91,7 @@
             // 
             // edtCantidad
             // 
-            this.edtCantidad.Location = new System.Drawing.Point(115, 19);
+            this.edtCantidad.Location = new System.Drawing.Point(132, 88);
             this.edtCantidad.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -123,7 +114,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(12, 21);
+            this.lblCantidad.Location = new System.Drawing.Point(29, 90);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(97, 13);
             this.lblCantidad.TabIndex = 8;
@@ -135,7 +126,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 304);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.lstAleatorios);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.edtIntervalos);
             this.Controls.Add(this.lblIntervalos);
@@ -153,7 +143,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.ListBox lstAleatorios;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.NumericUpDown edtIntervalos;
         private System.Windows.Forms.Label lblIntervalos;

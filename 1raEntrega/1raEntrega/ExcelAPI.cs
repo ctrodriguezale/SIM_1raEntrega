@@ -28,7 +28,7 @@ namespace _1raEntrega
 
 
 
-        public void completarTablas(double[] aleatorios, double[,] frecuencias, double chi)
+        public void completarTablas(double[] aleatorios, double[,] frecuencias, double chi,int intervalos)
         {
             //Completa tabla de numeros aleatorios
             xlWorkSheet.Range["D1:H1"].Merge();
@@ -79,7 +79,9 @@ namespace _1raEntrega
             Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
             Excel.Chart chartPage = myChart.Chart;
 
-            chartRange = xlWorkSheet.get_Range("H3", "I13");
+            int inter = 3 + intervalos;
+
+            chartRange = xlWorkSheet.get_Range("G3", "H"+inter);
             chartPage.HasTitle = true;
             chartPage.ChartTitle.Caption = "Chi Cuadrado de los Números Aleatorios Generados";
 
