@@ -31,3 +31,7 @@
 1raEntrega/.vs/1raEntrega/v15/Server/sqlite3/storage.ide-shm
 1raEntrega/.vs/1raEntrega/v15/Server/sqlite3/storage.ide
 1raEntrega/.vs/1raEntrega/v15/.suo
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal

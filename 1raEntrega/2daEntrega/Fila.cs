@@ -8,9 +8,39 @@ namespace _2daEntrega
 {
     class Fila
     {
-        private double limiteInferior;
-        private double limiteSuperior;
-        private int frecuencia;
+        public double limiteInferior
+        {
+            get
+            {
+                return limiteInferior;
+            }
+            set
+            {
+                limiteInferior = value;
+            }
+        }
+        public double limiteSuperior
+        {
+            get
+            {
+                return limiteSuperior;
+            }
+            set
+            {
+                limiteSuperior = value;
+            }
+        }
+        public int frecuencia
+        {
+            get
+            {
+                return frecuencia;
+            }
+            set
+            {
+                limiteSuperior = value;
+            }
+        }
 
         public Fila(double limiteInferior, double limiteSuperior)
         {

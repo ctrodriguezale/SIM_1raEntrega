@@ -36,9 +36,8 @@ namespace _2daEntrega
                 tabla.agregarObservacion(observacion);
             }
 
-            ExcelAPI excel = new ExcelAPI("Duración de capitulos de series originales de Netflix");
-
-            excel.generarHistograma();
+            ExcelAPI excel = new ExcelAPI;
+            
         }
     }
 }
