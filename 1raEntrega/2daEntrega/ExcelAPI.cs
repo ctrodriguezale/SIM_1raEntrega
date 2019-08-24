@@ -60,10 +60,10 @@ namespace _2daEntrega
             xlWorkSheet.Cells[4, "D"] = "Frecuencia";
             for (int i = 0; i < tabla.Length; i++)
             {
-                xlWorkSheet.Cells[i + 5, "A"] = tabla[i].limiteInferior;
-                xlWorkSheet.Cells[i + 5, "B"] = tabla[i].limiteSuperior;
+                xlWorkSheet.Cells[i + 5, "A"] = tabla[i].LimiteInferior;
+                xlWorkSheet.Cells[i + 5, "B"] = tabla[i].LimiteSuperior;
                 xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
-                xlWorkSheet.Cells[i + 5, "D"] = tabla[i].frecuencia;
+                xlWorkSheet.Cells[i + 5, "D"] = tabla[i].Frecuencia;
             }
         }
 

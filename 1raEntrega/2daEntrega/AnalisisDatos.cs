@@ -12,6 +12,7 @@ namespace _2daEntrega
 {
     public partial class AnalisisDatos : Form
     {
+
         public AnalisisDatos()
         {
             InitializeComponent();
@@ -43,13 +44,8 @@ namespace _2daEntrega
         {
             try
             {
-                int[] datos;
-                //Abrimos el archivo que tiene las observaciones
-                ExcelAPI excel = new ExcelAPI("");
-                
-                excel.abrirArchivo("E:\\Documentos\\Facultad\\IV-SIM\\Repo\\1raEntrega\\1raEntrega\\2daEntrega\\Tp2_Muestras.xlsx");
-
-                datos = excel.obtenerObservaciones(1);
+                Controlador controller = new Controlador(this);
+                controller.visualizarDatos(lblArchivo.Text, (int) edtIntervalos.Value);
 
             }
             catch
@@ -57,5 +53,42 @@ namespace _2daEntrega
                 MessageBox.Show("Error ");
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnFile = new OpenFileDialog();
+            opnFile.ShowDialog();
+            asignarArchivo(opnFile.FileName);
+        }
+
+        private void asignarArchivo(string NombreArchivo)
+        {
+            if (NombreArchivo != "")
+            {
+                lblArchivo.Text = NombreArchivo;
+            }
+            else
+            {
+                lblArchivo.Text = "Seleccionar Archivo de datos";
+            }
+        }
+
+        public void MostrarError(string mensaje)
+        {
+            MessageBox.Show(mensaje);
+        }
+
+        public void MostrarHistograma(Estadistica tabla)
+        {
+            ChartArea area = new ChartArea("Duración de capítulos, para series originales de NETFLIX en género Drama");
+            chrHistograma.ChartAreas.Add(area);
+            foreach (var fila in tabla.)
+            {
+
+            }
+                chrHistograma.Series.Add();
+        }
+
+
     }
 }

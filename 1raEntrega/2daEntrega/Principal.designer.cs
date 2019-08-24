@@ -123,8 +123,8 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(167, 127);
             this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "- Barrera Luciano (69920)\n\n- Floreano Micaela (72276)\n\n- Ribotta Franco (Lejago)\n" +
-    "\n- Rodriguez Alejandro (61142)\n\n- Videla Gimena (66984)";
+            this.richTextBox1.Text = "- Baez Lucas (58584)\n\n- Floreano Micaela (72276)\n\n- Ribotta Franco (74120)\n\n- Rod" +
+    "riguez Alejandro (61142)\n\n- Videla Gimena (66984)";
             // 
             // Principal
             // 

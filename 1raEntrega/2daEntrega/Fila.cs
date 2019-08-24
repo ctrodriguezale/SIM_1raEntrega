@@ -8,7 +8,11 @@ namespace _2daEntrega
 {
     class Fila
     {
-        public double limiteInferior
+        private double limiteInferior;
+        private double limiteSuperior;
+        private int frecuencia;
+
+        public double LimiteInferior
         {
             get
             {
@@ -19,7 +23,7 @@ namespace _2daEntrega
                 limiteInferior = value;
             }
         }
-        public double limiteSuperior
+        public double LimiteSuperior
         {
             get
             {
@@ -30,7 +34,7 @@ namespace _2daEntrega
                 limiteSuperior = value;
             }
         }
-        public int frecuencia
+        public int Frecuencia
         {
             get
             {
@@ -63,6 +67,7 @@ namespace _2daEntrega
 
         public Boolean esDeIntervalo(double aleatorio)
         {
+            //si se encuentra dentro de los limites del intervalo retorna true
             if ((aleatorio >= limiteInferior) && (aleatorio < limiteSuperior))
                 return true;
             else

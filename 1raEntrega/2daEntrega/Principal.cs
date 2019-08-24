@@ -29,15 +29,8 @@ namespace _2daEntrega
 
         private void analizarDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            double observacion = 250;
-            Estadistica tabla = new Estadistica(5, 500, 203);
-            for (int i = 0; i < 200; i++)
-            {
-                tabla.agregarObservacion(observacion);
-            }
-
-            ExcelAPI excel = new ExcelAPI;
-            
+            AnalisisDatos pantalla = new AnalisisDatos();
+            pantalla.ShowDialog();
         }
     }
 }
