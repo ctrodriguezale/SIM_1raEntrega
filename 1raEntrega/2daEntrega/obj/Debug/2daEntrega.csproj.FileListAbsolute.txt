@@ -1,0 +1,11 @@
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\2daEntrega.csprojResolveAssemblyReference.cache
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\_2daEntrega.AnalisisDatos.resources
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\_2daEntrega.Principal.resources
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\_2daEntrega.Properties.Resources.resources
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\2daEntrega.csproj.GenerateResource.cache
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\2daEntrega.csproj.CoreCompileInputs.cache
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\bin\Debug\2daEntrega.exe.config
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\bin\Debug\2daEntrega.exe
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\bin\Debug\2daEntrega.pdb
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\2daEntrega.exe
+G:\gimev\Documents\TPs\SIM_1raEntrega\1raEntrega\2daEntrega\obj\Debug\2daEntrega.pdb
