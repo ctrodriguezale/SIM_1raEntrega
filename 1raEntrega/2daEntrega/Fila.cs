@@ -60,6 +60,11 @@ namespace _2daEntrega
             return media;
         }
 
+        public double obtenerFrecRelativa()
+        {
+            double frecRelativa;
+            return frecRelativa = frecuencia / 200;
+        }
         public void sumar()
         {
             frecuencia++;

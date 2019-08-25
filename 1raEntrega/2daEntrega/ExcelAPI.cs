@@ -53,19 +53,66 @@ namespace _2daEntrega
             xlWorkSheet.Range["A3:F4"].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
             xlWorkSheet.Range["A3:F4"].Font.Bold = true;
             //Crea las cabeceras
-            xlWorkSheet.Range["A4:F4"].Font.Size = 16;
+            xlWorkSheet.Range["A4:M4"].Font.Size = 16;
             xlWorkSheet.Cells[4, "A"] = "Limite inferior";
             xlWorkSheet.Cells[4, "B"] = "Limite superior";
             xlWorkSheet.Cells[4, "C"] = "Marca de clase";
             xlWorkSheet.Cells[4, "D"] = "Frecuencia";
+            xlWorkSheet.Cells[4, "E"] = "Frecuencia Relativa";
+            xlWorkSheet.Cells[4, "G"] = "F. Esperada Distr. Uniforme";
+            xlWorkSheet.Cells[4, "H"] = "F. Esperada Distr. Normal";
+            xlWorkSheet.Cells[4, "I"] = "F. Esperada Dist. Exp. Negativa";
+            xlWorkSheet.Cells[4, "K"] = "F. Chi Cua. Distr. Uniforme";
+            xlWorkSheet.Cells[4, "L"] = "F. Chi Cua. Distr. Normal";
+            xlWorkSheet.Cells[4, "M"] = "F. Chi Cua. Dist. Exp. Negativa";
+
+            // obtencion de parametros para distribuciones falta calcular estos parametros en base a datos del archivo ingresado
+
+            //Media = (max + min) / 2
+
+            //Varianza = (max + min) ^2 / 12
+
+            //Lamda = 1/media
+
+            double sumUniforme = 0, sumNormal = 0, sumExpoNegativa = 0;
+
             for (int i = 0; i < tabla.Length; i++)
             {
                 xlWorkSheet.Cells[i + 5, "A"] = tabla[i].LimiteInferior;
                 xlWorkSheet.Cells[i + 5, "B"] = tabla[i].LimiteSuperior;
                 xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
                 xlWorkSheet.Cells[i + 5, "D"] = tabla[i].Frecuencia;
+                xlWorkSheet.Cells[i + 5, "E"] = tabla[i].obtenerFrecRelativa();
+
+                //distribuciones esperadas
+                xlWorkSheet.Cells[i + 5, "G"] = 200/7;
+                // falta realizar el calculo de las distribuciones esparedas para la normal y exponencial negativa
+                xlWorkSheet.Cells[i + 5, "H"] = "= (DISTR.NORM.N(E14; Media; desviacion; 1)-DISTR.NORM.N(D14; Media; desviacion; 1))*200";
+                xlWorkSheet.Cells[i + 5, "I"] = "= (DISTR.EXP.N(E14; Lambda;1)-DISTR.EXP.N(D14; Lamda;1)) * 200";
+
+                // calculo de valores de chi cuadrado
+                xlWorkSheet.Cells[i + 5, "K"] = Math.Pow(xlWorkSheet.Cells[i + 5, "D"] - xlWorkSheet.Cells[i + 5, "G"], 2) / xlWorkSheet.Cells[i + 5, "G"];
+                xlWorkSheet.Cells[i + 5, "L"] = Math.Pow(xlWorkSheet.Cells[i + 5, "D"] - xlWorkSheet.Cells[i + 5, "H"], 2) / xlWorkSheet.Cells[i + 5, "H"];
+                xlWorkSheet.Cells[i + 5, "M"] = Math.Pow(xlWorkSheet.Cells[i + 5, "D"] - xlWorkSheet.Cells[i + 5, "I"], 2) / xlWorkSheet.Cells[i + 5, "I"];
+
+                // Sumatoria Chi Cuadrado
+                sumUniforme = sumUniforme + xlWorkSheet.Cells[i + 5, "K"];
+                sumNormal = sumNormal + xlWorkSheet.Cells[i + 5, "L"];
+                sumExpoNegativa = sumExpoNegativa + xlWorkSheet.Cells[i + 5, "M"];
             }
+
+            int ultimaFila = tabla.Length;
+            //muestra Sumatorias Chi cuadrado
+            xlWorkSheet.Cells[ultimaFila + 5, "K"] = sumUniforme;
+            xlWorkSheet.Cells[ultimaFila + 5, "L"] = sumNormal;
+            xlWorkSheet.Cells[ultimaFila + 5, "M"] = sumExpoNegativa;
+            // muestra Sumatoria funcion INV.CHICUAD.CD de excel con intervalos igual a 7
+            xlWorkSheet.Cells[ultimaFila + 6, "K"] = "=INV.CHICUAD.CD(0,05;(7 - 2 - 1))";
+            xlWorkSheet.Cells[ultimaFila + 6, "L"] = "=INV.CHICUAD.CD(0,05;(7 - 2 - 1))";
+            xlWorkSheet.Cells[ultimaFila + 6, "M"] = "=INV.CHICUAD.CD(0,05;(7 - 1 - 1))";
         }
+
+
 
         public void generarHistograma(int intervalos)
         {
