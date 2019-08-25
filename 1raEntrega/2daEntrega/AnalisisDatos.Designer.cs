@@ -28,24 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chrHistograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblArchivo = new System.Windows.Forms.Label();
             this.edtIntervalos = new System.Windows.Forms.NumericUpDown();
             this.lblIntervalos = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.chrHistograma)).BeginInit();
+            this.chrHistograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrHistograma)).BeginInit();
             this.SuspendLayout();
-            // 
-            // chrHistograma
-            // 
-            this.chrHistograma.Location = new System.Drawing.Point(12, 75);
-            this.chrHistograma.Name = "chrHistograma";
-            this.chrHistograma.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            this.chrHistograma.Size = new System.Drawing.Size(380, 274);
-            this.chrHistograma.TabIndex = 0;
-            this.chrHistograma.Text = "chtHistograma";
             // 
             // btnVisualizar
             // 
@@ -106,33 +99,45 @@
             this.lblIntervalos.TabIndex = 9;
             this.lblIntervalos.Text = "Intervalos";
             // 
+            // chrHistograma
+            // 
+            chartArea1.AxisX.IsStartedFromZero = false;
+            chartArea1.Name = "ChartArea1";
+            this.chrHistograma.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chrHistograma.Legends.Add(legend1);
+            this.chrHistograma.Location = new System.Drawing.Point(9, 75);
+            this.chrHistograma.Name = "chrHistograma";
+            this.chrHistograma.Size = new System.Drawing.Size(383, 276);
+            this.chrHistograma.TabIndex = 10;
+            this.chrHistograma.Text = "chart1";
+            // 
             // AnalisisDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 360);
+            this.Controls.Add(this.chrHistograma);
             this.Controls.Add(this.lblIntervalos);
             this.Controls.Add(this.edtIntervalos);
             this.Controls.Add(this.lblArchivo);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnVisualizar);
-            this.Controls.Add(this.chrHistograma);
             this.Name = "AnalisisDatos";
             this.Text = "AnalisisDatos";
-            ((System.ComponentModel.ISupportInitialize)(this.chrHistograma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrHistograma)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
         
         #endregion
-
-        private System.Windows.Forms.DataVisualization.Charting.Chart chrHistograma;
         private System.Windows.Forms.Button btnVisualizar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblArchivo;
         private System.Windows.Forms.NumericUpDown edtIntervalos;
         private System.Windows.Forms.Label lblIntervalos;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrHistograma;
     }
 }

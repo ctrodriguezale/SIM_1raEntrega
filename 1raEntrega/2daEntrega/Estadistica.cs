@@ -52,6 +52,30 @@ namespace _2daEntrega
             }
         }
 
+        public double[] getMarcasClase()
+        {
+            double[] marcaClases = new double[listaFilas.Count()];
+            int index = 0;
+            foreach (var fila in listaFilas)
+            {
+                marcaClases[index] = fila.conocerMedia();
+                index++;
+            }
+            
+            return marcaClases;
+        }
 
+        public double[] getFrecuencias()
+        {
+            double[] frecuencias = new double[listaFilas.Count()];
+            int index = 0;
+            foreach (var fila in listaFilas)
+            {
+                frecuencias[index] = fila.Frecuencia;
+                index++;
+            }
+
+            return frecuencias;
+        }
     }
 }

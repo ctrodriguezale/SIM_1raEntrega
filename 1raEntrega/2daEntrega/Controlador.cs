@@ -32,7 +32,7 @@ namespace _2daEntrega
             tabla = new Estadistica(intervalos, minimo, maximo);
             tabularDatos();
             //generamos el histograma
-            pantalla.mostrarHistograma();
+            pantalla.mostrarHistograma(tabla.getMarcasClase(), tabla.getFrecuencias());
             
         }
 

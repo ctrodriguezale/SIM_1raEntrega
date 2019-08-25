@@ -78,15 +78,20 @@ namespace _2daEntrega
             MessageBox.Show(mensaje);
         }
 
-        public void MostrarHistograma(Estadistica tabla)
+        public void mostrarHistograma(double[] marcasClase, double[] frecuencias)
         {
-            ChartArea area = new ChartArea("Duración de capítulos, para series originales de NETFLIX en género Drama");
-            chrHistograma.ChartAreas.Add(area);
-            foreach (var fila in tabla.)
+            chrHistograma.Series.Add (new Series());
+            for (int i = 0; i < marcasClase.Length; i++)
             {
-
+                chrHistograma.Series[0].Points.AddXY(marcasClase[i], frecuencias[i]);
+                //chrHistograma.Series[0].;
             }
-                chrHistograma.Series.Add();
+
+            chrHistograma.ChartAreas[0].AxisX.Interval = 1;
+            chrHistograma.Series[0].IsXValueIndexed = true;
+            chrHistograma.Series[0].IsVisibleInLegend = false;
+
+
         }
 
 
