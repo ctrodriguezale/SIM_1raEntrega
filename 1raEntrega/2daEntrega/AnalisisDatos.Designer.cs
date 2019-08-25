@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblArchivo = new System.Windows.Forms.Label();
             this.edtIntervalos = new System.Windows.Forms.NumericUpDown();
             this.lblIntervalos = new System.Windows.Forms.Label();
             this.chrHistograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.txtConclusion = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrHistograma)).BeginInit();
             this.SuspendLayout();
@@ -104,19 +104,29 @@
             chartArea1.AxisX.IsStartedFromZero = false;
             chartArea1.Name = "ChartArea1";
             this.chrHistograma.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chrHistograma.Legends.Add(legend1);
-            this.chrHistograma.Location = new System.Drawing.Point(9, 75);
+            this.chrHistograma.Location = new System.Drawing.Point(9, 76);
             this.chrHistograma.Name = "chrHistograma";
-            this.chrHistograma.Size = new System.Drawing.Size(383, 276);
+            this.chrHistograma.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.chrHistograma.Size = new System.Drawing.Size(577, 263);
             this.chrHistograma.TabIndex = 10;
             this.chrHistograma.Text = "chart1";
+            // 
+            // txtConclusion
+            // 
+            this.txtConclusion.Location = new System.Drawing.Point(604, 76);
+            this.txtConclusion.Name = "txtConclusion";
+            this.txtConclusion.Size = new System.Drawing.Size(172, 263);
+            this.txtConclusion.TabIndex = 12;
+            this.txtConclusion.Text = "Hipótesis:\n\nDado el gráfico que observamos de la muestra analizada, \nproponemos l" +
+    "a hipótesis de que la variable sigue una distribución Normal.";
+            this.txtConclusion.Visible = false;
             // 
             // AnalisisDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 360);
+            this.ClientSize = new System.Drawing.Size(801, 364);
+            this.Controls.Add(this.txtConclusion);
             this.Controls.Add(this.chrHistograma);
             this.Controls.Add(this.lblIntervalos);
             this.Controls.Add(this.edtIntervalos);
@@ -124,7 +134,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnVisualizar);
             this.Name = "AnalisisDatos";
-            this.Text = "AnalisisDatos";
+            this.Text = "Analisis de Datos";
             ((System.ComponentModel.ISupportInitialize)(this.edtIntervalos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrHistograma)).EndInit();
             this.ResumeLayout(false);
@@ -139,5 +149,6 @@
         private System.Windows.Forms.NumericUpDown edtIntervalos;
         private System.Windows.Forms.Label lblIntervalos;
         private System.Windows.Forms.DataVisualization.Charting.Chart chrHistograma;
+        private System.Windows.Forms.RichTextBox txtConclusion;
     }
 }
