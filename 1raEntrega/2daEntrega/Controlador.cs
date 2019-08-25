@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-
 namespace _2daEntrega
 {
     class Controlador
@@ -33,10 +32,9 @@ namespace _2daEntrega
             tabla = new Estadistica(intervalos, minimo, maximo);
             tabularDatos();
             //generamos el histograma
-            //pantalla.MostrarHistograma(tabla);
+            pantalla.mostrarHistograma();
             
         }
-        
 
         private void tabularDatos()
         {

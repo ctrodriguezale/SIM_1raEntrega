@@ -111,11 +111,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 360);
-            this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.lblIntervalos);
             this.Controls.Add(this.edtIntervalos);
             this.Controls.Add(this.lblArchivo);
             this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.chrHistograma);
             this.Name = "AnalisisDatos";
             this.Text = "AnalisisDatos";

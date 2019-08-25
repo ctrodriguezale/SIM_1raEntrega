@@ -28,7 +28,7 @@ namespace _2daEntrega
             ChartArea area = new ChartArea();
             chrHistograma.ChartAreas.Add(area);
             //Agrego el titulo
-            chrHistograma.Titles.Add("Duración de capítulos, de Series Originales de NETFLIX en Género Drama");
+            chrHistograma.Titles.Add("Duración de capítulos, para series originales de NETFLIX en género Drama");
             //Configuramos la serie de datos
             Series serie = new Series();
             serie.XValueMember = "Duración";
@@ -36,6 +36,8 @@ namespace _2daEntrega
             serie.IsValueShownAsLabel = false;
             chrHistograma.Series.Add(serie);
             //chrHistograma.DataSource =
+
+
         }
 
         private void btnVisualizar_Click(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace _2daEntrega
             }
             catch
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error ");
             }
         }
 
@@ -76,15 +78,15 @@ namespace _2daEntrega
             MessageBox.Show(mensaje);
         }
 
-        public void MostrarHistograma()//Estadistica tabla)
+        public void MostrarHistograma(Estadistica tabla)
         {
-            //ChartArea area = new ChartArea("Duración de capítulos, para series originales de NETFLIX en género Drama");
-            //chrHistograma.ChartAreas.Add(area);
-            //foreach (var fila in tabla)
-            //{
+            ChartArea area = new ChartArea("Duración de capítulos, para series originales de NETFLIX en género Drama");
+            chrHistograma.ChartAreas.Add(area);
+            foreach (var fila in tabla.)
+            {
 
-            //}
-            //chrHistograma.Series.Add();
+            }
+                chrHistograma.Series.Add();
         }
 
 
