@@ -20,22 +20,19 @@ namespace _2daEntrega
 
         private void cargarHistograma()
         {
-            //limpiamos el grafico
-            chrHistograma.Series.Clear();
+
             chrHistograma.Titles.Clear();
             chrHistograma.ChartAreas.Clear();
             //Agrago el area de grafico
             ChartArea area = new ChartArea();
             chrHistograma.ChartAreas.Add(area);
-            //Agrego el titulo
-            chrHistograma.Titles.Add("Duración de capítulos, para series originales de NETFLIX en género Drama");
+            
             //Configuramos la serie de datos
             Series serie = new Series();
             serie.XValueMember = "Duración";
             serie.YValueMembers = "Frecuencia";
             serie.IsValueShownAsLabel = false;
             chrHistograma.Series.Add(serie);
-            //chrHistograma.DataSource =
 
 
         }
@@ -80,7 +77,12 @@ namespace _2daEntrega
 
         public void mostrarHistograma(double[] marcasClase, double[] frecuencias)
         {
+            //limpiamos el grafico
+            chrHistograma.Series.Clear();
             chrHistograma.Series.Add (new Series());
+            //Agrego el titulo
+            chrHistograma.Titles.Clear();
+            chrHistograma.Titles.Add("Duración de capítulos, para series originales de NETFLIX en género Drama");
             for (int i = 0; i < marcasClase.Length; i++)
             {
                 chrHistograma.Series[0].Points.AddXY(marcasClase[i], frecuencias[i]);
@@ -90,8 +92,8 @@ namespace _2daEntrega
             chrHistograma.ChartAreas[0].AxisX.Interval = 1;
             chrHistograma.Series[0].IsXValueIndexed = true;
             chrHistograma.Series[0].IsVisibleInLegend = false;
-
-
+            chrHistograma.ChartAreas[0].AxisY.Title = "frec";
+            chrHistograma.ChartAreas[0].AxisX.Title = "frecuencia";
         }
 
 

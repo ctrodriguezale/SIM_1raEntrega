@@ -101,7 +101,6 @@
             // 
             // chrHistograma
             // 
-            chartArea1.AxisX.IsStartedFromZero = false;
             chartArea1.Name = "ChartArea1";
             this.chrHistograma.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";

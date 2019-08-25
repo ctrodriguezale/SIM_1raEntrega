@@ -11,6 +11,19 @@ namespace _2daEntrega
     {
         private Fila[] listaFilas;
 
+        public Fila[] ListaFilas
+        {
+            get
+            {
+                return listaFilas;
+            }
+            set
+            {
+                this.listaFilas = value;
+            }
+        }
+
+
         public Estadistica(string nombreArchivo)
         {
 
@@ -77,5 +90,7 @@ namespace _2daEntrega
 
             return frecuencias;
         }
+
+        
     }
 }
