@@ -17,37 +17,19 @@ namespace _2daEntrega
         {
             InitializeComponent();
         }
-
-        private void cargarHistograma()
-        {
-
-            chrHistograma.Titles.Clear();
-            chrHistograma.ChartAreas.Clear();
-            //Agrago el area de grafico
-            ChartArea area = new ChartArea();
-            chrHistograma.ChartAreas.Add(area);
-            
-            //Configuramos la serie de datos
-            Series serie = new Series();
-            serie.XValueMember = "Duración";
-            serie.YValueMembers = "Frecuencia";
-            serie.IsValueShownAsLabel = false;
-            chrHistograma.Series.Add(serie);
-
-
-        }
-
+        
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
+
             try
             {
                 Controlador controller = new Controlador(this);
                 controller.visualizarDatos(lblArchivo.Text, (int) edtIntervalos.Value);
-
+                txtConclusion.Visible = true;
             }
             catch
             {
-                MessageBox.Show("Error ");
+                MessageBox.Show("Error");
             }
         }
 
@@ -77,25 +59,29 @@ namespace _2daEntrega
 
         public void mostrarHistograma(double[] marcasClase, double[] frecuencias)
         {
-            //limpiamos el grafico
+            // se limpia histograma
             chrHistograma.Series.Clear();
-            chrHistograma.Series.Add (new Series());
-            //Agrego el titulo
             chrHistograma.Titles.Clear();
-            chrHistograma.Titles.Add("Duración de capítulos, para series originales de NETFLIX en género Drama");
+
+            //Agrego el titulo
+            chrHistograma.Titles.Add("Duración de Capítulos de Series Originales de NETFLIX de Género Drama");
+            //agrego la serie
+            chrHistograma.Series.Add (new Series());
+          
             for (int i = 0; i < marcasClase.Length; i++)
             {
-                chrHistograma.Series[0].Points.AddXY(marcasClase[i], frecuencias[i]);
+                chrHistograma.Series[0].Points.AddXY(Math.Round(marcasClase[i],2), frecuencias[i]);
                 //chrHistograma.Series[0].;
             }
 
             chrHistograma.ChartAreas[0].AxisX.Interval = 1;
             chrHistograma.Series[0].IsXValueIndexed = true;
-            chrHistograma.Series[0].IsVisibleInLegend = false;
-            chrHistograma.ChartAreas[0].AxisY.Title = "frec";
-            chrHistograma.ChartAreas[0].AxisX.Title = "frecuencia";
+
+            chrHistograma.Series[0].IsVisibleInLegend = true;
+            chrHistograma.Series[0].IsValueShownAsLabel = true;
+            chrHistograma.ChartAreas[0].AxisX.Title = "Duración en Minutos" ;
+            chrHistograma.ChartAreas[0].AxisY.Title = "Frecuencia";
+
         }
-
-
     }
 }
