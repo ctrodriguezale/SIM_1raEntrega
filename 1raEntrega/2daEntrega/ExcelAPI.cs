@@ -67,12 +67,12 @@ namespace _2daEntrega
                 //Crea el titulo
                 xlWorkSheet.Range["A3:F3"].Merge();
                 xlWorkSheet.Range["A3:F3"].Font.Size = 20;
-                xlWorkSheet.Range["A3:F3"].Value = "Distribuciones de frecuencias";
+                xlWorkSheet.Range["A3:F3"].Value = "Distribuciones de Frecuencias";
                 xlWorkSheet.Range["A3:M4"].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 xlWorkSheet.Range["A3:M4"].Font.Bold = true;
                 xlWorkSheet.Range["A5:M12"].NumberFormat = "00.0000";
                 //Crea las cabeceras
-                xlWorkSheet.Range["A4:M4"].Font.Size = 10;
+                xlWorkSheet.Range["A4:M4"].Font.Size = 8;
                 xlWorkSheet.Cells[4, "A"] = "Limite inferior";
                 xlWorkSheet.Cells[4, "B"] = "Limite superior";
                 xlWorkSheet.Cells[4, "C"] = "Marca de clase";
@@ -109,22 +109,19 @@ namespace _2daEntrega
                     xlWorkSheet.Cells[i + 5, "L"] = Math.Pow(observado - esperadoNormal, 2) / esperadoNormal;
                     xlWorkSheet.Cells[i + 5, "M"] = Math.Pow(observado - esperadoExpo, 2) / esperadoExpo;
 
-                    //// Sumatoria Chi Cuadrado
-                    //sumUniforme = sumUniforme + xlWorkSheet.Cells[i + 5, "K"];
-                    //sumNormal = sumNormal + xlWorkSheet.Cells[i + 5, "L"];
-                    //sumExpoNegativa = sumExpoNegativa + xlWorkSheet.Cells[i + 5, "M"];
                 }
-
-                //int ultimaFila = tabla.Length;
                 //muestra Sumatorias Chi cuadrado
                 xlWorkSheet.Cells[12, "K"].Formula = "=SUM(K5:K11)";
                 xlWorkSheet.Cells[12, "L"].Formula = "=SUM(L5:L11)";
                 xlWorkSheet.Cells[12, "M"].Formula = "=SUM(M5:M11)";
-                
-                //muestra Sumatoria funcion INV.CHICUAD.CD de excel con intervalos igual a 7
-                //xlWorkSheet.Cells[13, "K"].FormulaR1C1 = "=INV.CHICUAD.CD(0,05;4)";
-                //xlWorkSheet.Cells[13, "L"].FormulaR1C1 = "=INV.CHICUAD.CD(0,05;4)";
-                //xlWorkSheet.Cells[13, "M"].FormulaR1C1 = "=INV.CHICUAD.CD(0,05;5)";
+                xlWorkSheet.Cells[12, "N"] = "Sumatoria Chi Cuadrado";
+
+                //muestra resultado funcion INV.CHICUAD.CD de excel con intervalos igual a 7 y grados de libertas igual a 0,005
+                // ya que estos valos res no se modifican los resultados obtenidos a travez la funcion son los mismos	 9,49 	 11,07 
+                xlWorkSheet.Cells[13, "K"] = "9.49";
+                xlWorkSheet.Cells[13, "L"] = "9.49";
+                xlWorkSheet.Cells[13, "M"] = "11.07";
+                xlWorkSheet.Cells[13, "N"] = "Valor de la Tabla";
             }
             finally
             {
