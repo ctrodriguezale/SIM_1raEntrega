@@ -68,10 +68,11 @@ namespace _2daEntrega
                 xlWorkSheet.Range["A3:F3"].Merge();
                 xlWorkSheet.Range["A3:F3"].Font.Size = 20;
                 xlWorkSheet.Range["A3:F3"].Value = "Distribuciones de frecuencias";
-                xlWorkSheet.Range["A3:F4"].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                xlWorkSheet.Range["A3:F4"].Font.Bold = true;
+                xlWorkSheet.Range["A3:M4"].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                xlWorkSheet.Range["A3:M4"].Font.Bold = true;
+                xlWorkSheet.Range["A5:M12"].NumberFormat = "00.0000";
                 //Crea las cabeceras
-                xlWorkSheet.Range["A4:M4"].Font.Size = 16;
+                xlWorkSheet.Range["A4:M4"].Font.Size = 10;
                 xlWorkSheet.Cells[4, "A"] = "Limite inferior";
                 xlWorkSheet.Cells[4, "B"] = "Limite superior";
                 xlWorkSheet.Cells[4, "C"] = "Marca de clase";
@@ -86,49 +87,44 @@ namespace _2daEntrega
 
                 // obtencion de parametros para distribuciones falta calcular estos parametros en base a datos del archivo ingresado
 
-                //Media = (max + min) / 2
-
-                //Varianza = (max + min) ^2 / 12
-
-                //Lamda = 1/media
-
-                double sumUniforme = 0, sumNormal = 0, sumExpoNegativa = 0;
-
                 for (int i = 0; i < tabla.Length; i++)
                 {
                     xlWorkSheet.Cells[i + 5, "A"] = tabla[i].LimiteInferior;
                     xlWorkSheet.Cells[i + 5, "B"] = tabla[i].LimiteSuperior;
                     xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
                     xlWorkSheet.Cells[i + 5, "D"] = tabla[i].Frecuencia;
-                    xlWorkSheet.Cells[i + 5, "E"] = tabla[i].obtenerFrecRelativa();
+                    xlWorkSheet.Cells[i + 5, "E"] = tabla[i].Frecuencia / 200;
 
                     //distribuciones esperadas
-                    xlWorkSheet.Cells[i + 5, "G"] = 200 / 7;
+                    double observado = tabla[i].Frecuencia;
+                    double esperadoUniforme = 200 / 7;
+                    double esperadoNormal = ProbDistrNormal(mediaObservada, desvObservada, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * 200;
+                    double esperadoExpo = ProbDistrExpo(mediaObservada, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * 200;
+                    xlWorkSheet.Cells[i + 5, "G"] = esperadoUniforme;
+                    xlWorkSheet.Cells[i + 5, "H"] = esperadoNormal;
+                    xlWorkSheet.Cells[i + 5, "I"] = esperadoExpo;
 
-                    // falta realizar el calculo de las distribuciones esparedas para la normal y exponencial negativa
-                    xlWorkSheet.Cells[i + 5, "H"] = "=SUM(2;5)";// -DISTR.NORM(D14; " + mediaObservada + "; " + desvObservada + "; 1))*200";
-                                                                 //           xlWorkSheet.Cells[i + 5, "I"] = "= (DISTR.EXP.N(E14; Lambda;1)-DISTR.EXP.N(D14; Lamda;1)) * 200";
+                    // calculo de valores de chi cuadrado
+                    xlWorkSheet.Cells[i + 5, "K"] = Math.Pow(observado - esperadoUniforme, 2) / esperadoUniforme;
+                    xlWorkSheet.Cells[i + 5, "L"] = Math.Pow(observado - esperadoNormal, 2) / esperadoNormal;
+                    xlWorkSheet.Cells[i + 5, "M"] = Math.Pow(observado - esperadoExpo, 2) / esperadoExpo;
 
-                    /*                // calculo de valores de chi cuadrado
-                                    xlWorkSheet.Cells[i + 5, "K"] = Math.Pow(xlWorkSheet.Cells[i + 5, "D"] - xlWorkSheet.Cells[i + 5, "G"], 2) / xlWorkSheet.Cells[i + 5, "G"];
-                                    xlWorkSheet.Cells[i + 5, "L"] = Math.Pow(xlWorkSheet.Cells[i + 5, "D"] - xlWorkSheet.Cells[i + 5, "H"], 2) / xlWorkSheet.Cells[i + 5, "H"];
-                                    xlWorkSheet.Cells[i + 5, "M"] = Math.Pow(xlWorkSheet.Cells[i + 5, "D"] - xlWorkSheet.Cells[i + 5, "I"], 2) / xlWorkSheet.Cells[i + 5, "I"];
-
-                                    // Sumatoria Chi Cuadrado
-                                    sumUniforme = sumUniforme + xlWorkSheet.Cells[i + 5, "K"];
-                                    sumNormal = sumNormal + xlWorkSheet.Cells[i + 5, "L"];
-                                    sumExpoNegativa = sumExpoNegativa + xlWorkSheet.Cells[i + 5, "M"];*/
+                    //// Sumatoria Chi Cuadrado
+                    //sumUniforme = sumUniforme + xlWorkSheet.Cells[i + 5, "K"];
+                    //sumNormal = sumNormal + xlWorkSheet.Cells[i + 5, "L"];
+                    //sumExpoNegativa = sumExpoNegativa + xlWorkSheet.Cells[i + 5, "M"];
                 }
 
-                int ultimaFila = tabla.Length;
+                //int ultimaFila = tabla.Length;
                 //muestra Sumatorias Chi cuadrado
-                xlWorkSheet.Cells[ultimaFila + 5, "K"] = sumUniforme;
-                xlWorkSheet.Cells[ultimaFila + 5, "L"] = sumNormal;
-                xlWorkSheet.Cells[ultimaFila + 5, "M"] = sumExpoNegativa;
-                // muestra Sumatoria funcion INV.CHICUAD.CD de excel con intervalos igual a 7
-                //         xlWorkSheet.Cells[ultimaFila + 6, "K"] = "=INV.CHICUAD.CD(0,05;(7 - 2 - 1))";
-                //        xlWorkSheet.Cells[ultimaFila + 6, "L"] = "=INV.CHICUAD.CD(0,05;(7 - 2 - 1))";
-                //      xlWorkSheet.Cells[ultimaFila + 6, "M"] = "=INV.CHICUAD.CD(0,05;(7 - 1 - 1))";
+                xlWorkSheet.Cells[12, "K"].Formula = "=SUM(K5:K11)";
+                xlWorkSheet.Cells[12, "L"].Formula = "=SUM(L5:L11)";
+                xlWorkSheet.Cells[12, "M"].Formula = "=SUM(M5:M11)";
+                
+                //muestra Sumatoria funcion INV.CHICUAD.CD de excel con intervalos igual a 7
+                //xlWorkSheet.Cells[13, "K"].FormulaR1C1 = "=INV.CHICUAD.CD(0,05;4)";
+                //xlWorkSheet.Cells[13, "L"].FormulaR1C1 = "=INV.CHICUAD.CD(0,05;4)";
+                //xlWorkSheet.Cells[13, "M"].FormulaR1C1 = "=INV.CHICUAD.CD(0,05;5)";
             }
             finally
             {
@@ -153,6 +149,22 @@ namespace _2daEntrega
             rangoValores = xlWorkSheet.get_Range("D5", "D" + (intervalos + 5));
         }
 
+        public double ProbDistrNormal(double media, double desviacion, double limSup, double limInf)
+        {
+            double resultado;
+            double a = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limSup - media) / 2, 2)));
+            double b = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limInf - media) / 2, 2)));
+            return resultado = a - b;
+        }
+
+        public double ProbDistrExpo(double media, double limSup, double limInf)
+        {
+            double resultado;
+            double lambda = 1 / media;
+            double a = 1-Math.Pow(Math.E, (-lambda*limSup)) ;
+            double b = 1 - Math.Pow(Math.E, (-lambda * limInf));
+            return resultado = a - b;
+        }
 
 
     }
