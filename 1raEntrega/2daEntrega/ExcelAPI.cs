@@ -93,13 +93,13 @@ namespace _2daEntrega
                     xlWorkSheet.Cells[i + 5, "B"] = tabla[i].LimiteSuperior;
                     xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
                     xlWorkSheet.Cells[i + 5, "D"] = tabla[i].Frecuencia;
-                    xlWorkSheet.Cells[i + 5, "E"] = tabla[i].Frecuencia / 200;
+                    xlWorkSheet.Cells[i + 5, "E"] = tabla[i].Frecuencia/200.0;
 
                     //distribuciones esperadas
                     double observado = tabla[i].Frecuencia;
-                    double esperadoUniforme = 200 / 7;
-                    double esperadoNormal = ProbDistrNormal(mediaObservada, desvObservada, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * 200;
-                    double esperadoExpo = ProbDistrExpo(mediaObservada, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * 200;
+                    double esperadoUniforme = 200.0 / 7.0;
+                    double esperadoNormal = ProbDistrNormal(mediaObservada, desvObservada, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * 200.0;
+                    double esperadoExpo = ProbDistrExpo(mediaObservada, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * 200.0;
                     xlWorkSheet.Cells[i + 5, "G"] = esperadoUniforme;
                     xlWorkSheet.Cells[i + 5, "H"] = esperadoNormal;
                     xlWorkSheet.Cells[i + 5, "I"] = esperadoExpo;
@@ -148,10 +148,17 @@ namespace _2daEntrega
 
         public double ProbDistrNormal(double media, double desviacion, double limSup, double limInf)
         {
+
             double resultado;
-            double a = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limSup - media) / desviacion, 2)));
-            double b = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limInf - media) / desviacion, 2)));
-            return resultado = a - b;
+            desviacion = Math.Sqrt(desviacion);
+            double zsup = (limSup - media) / desviacion;
+            double zinf = (limInf - media) / desviacion;
+            
+            double a;
+            a = (Math.Pow(Math.E,((-0.5)*(Math.Pow(zsup,2))))/(Math.Sqrt(2.0*Math.PI)) * desviacion);
+            double b;
+            b = (Math.Pow(Math.E, ((-0.5) * (Math.Pow(zinf, 2)))) / (Math.Sqrt(2.0 * Math.PI)) * desviacion);
+            return resultado =a - b; //zsup - zinf;
         }
 
         public double ProbDistrExpo(double media, double limSup, double limInf)

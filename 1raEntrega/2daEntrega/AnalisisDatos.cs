@@ -27,11 +27,11 @@ namespace _2daEntrega
                 controller.visualizarDatos(lblArchivo.Text, (int) edtIntervalos.Value);
                 if (lblArchivo.Text.Contains("PrimeraMuestra"))
                 {
-                    txtConclusion.Text = "Hipótesis: \nDado el gráfico que observamos de la muestra analizada, proponemos la hipótesis de que la variable sigue una distribución Exponencial Negativa.";
+                    txtConclusion.Text = "Hipótesis: \nDado el gráfico que observamos de la muestra analizada, proponemos la hipótesis de que la variable sigue una distribución Exponencial Negativa. \n \n \nTras realizar la Prueba de Chi Cuadrado en el excel determinamos que los valores de la muestra no siguen ningun Tipo de las Distribuciones Candidatas Planteadas";
                 }
                 else
                 {
-                    txtConclusion.Text = "Hipótesis: \nDado el gráfico que observamos de la muestra analizada, proponemos la hipótesis de que la variable sigue una distribución Normal.";
+                    txtConclusion.Text = "Hipótesis: \nDado el gráfico que observamos de la muestra analizada, proponemos la hipótesis de que la variable sigue una distribución Normal. \n \n \nTras realizar la Prueba de Chi Cuadrado en el excel determinamos que los valores de la muestra no siguen ningun Tipo de las Distribuciones Candidatas Planteadas";
                 }
             }
             catch
