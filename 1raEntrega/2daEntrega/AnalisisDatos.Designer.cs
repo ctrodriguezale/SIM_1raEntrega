@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblArchivo = new System.Windows.Forms.Label();
@@ -72,12 +72,12 @@
             // 
             this.edtIntervalos.Location = new System.Drawing.Point(99, 49);
             this.edtIntervalos.Maximum = new decimal(new int[] {
-            15,
+            7,
             0,
             0,
             0});
             this.edtIntervalos.Minimum = new decimal(new int[] {
-            1,
+            7,
             0,
             0,
             0});
@@ -85,7 +85,7 @@
             this.edtIntervalos.Size = new System.Drawing.Size(74, 20);
             this.edtIntervalos.TabIndex = 8;
             this.edtIntervalos.Value = new decimal(new int[] {
-            5,
+            7,
             0,
             0,
             0});
@@ -101,8 +101,8 @@
             // 
             // chrHistograma
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chrHistograma.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chrHistograma.ChartAreas.Add(chartArea2);
             this.chrHistograma.Location = new System.Drawing.Point(9, 76);
             this.chrHistograma.Name = "chrHistograma";
             this.chrHistograma.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
@@ -116,9 +116,7 @@
             this.txtConclusion.Name = "txtConclusion";
             this.txtConclusion.Size = new System.Drawing.Size(172, 263);
             this.txtConclusion.TabIndex = 12;
-            this.txtConclusion.Text = "Hipótesis:\n\nDado el gráfico que observamos de la muestra analizada, \nproponemos l" +
-    "a hipótesis de que la variable sigue una distribución Normal.";
-            this.txtConclusion.Visible = false;
+            this.txtConclusion.Text = "";
             // 
             // AnalisisDatos
             // 

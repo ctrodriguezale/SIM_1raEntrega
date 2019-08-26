@@ -25,7 +25,14 @@ namespace _2daEntrega
             {
                 Controlador controller = new Controlador(this);
                 controller.visualizarDatos(lblArchivo.Text, (int) edtIntervalos.Value);
-                txtConclusion.Visible = true;
+                if (lblArchivo.Text.Contains("PrimeraMuestra"))
+                {
+                    txtConclusion.Text = "Hipótesis: \nDado el gráfico que observamos de la muestra analizada, proponemos la hipótesis de que la variable sigue una distribución Exponencial Negativa.";
+                }
+                else
+                {
+                    txtConclusion.Text = "Hipótesis: \nDado el gráfico que observamos de la muestra analizada, proponemos la hipótesis de que la variable sigue una distribución Normal.";
+                }
             }
             catch
             {
