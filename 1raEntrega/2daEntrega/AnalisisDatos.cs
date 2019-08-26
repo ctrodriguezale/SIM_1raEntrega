@@ -78,7 +78,6 @@ namespace _2daEntrega
             for (int i = 0; i < marcasClase.Length; i++)
             {
                 chrHistograma.Series[0].Points.AddXY(Math.Round(marcasClase[i],2), frecuencias[i]);
-                //chrHistograma.Series[0].;
             }
 
             chrHistograma.ChartAreas[0].AxisX.Interval = 1;

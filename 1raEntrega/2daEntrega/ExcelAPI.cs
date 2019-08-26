@@ -152,8 +152,8 @@ namespace _2daEntrega
         public double ProbDistrNormal(double media, double desviacion, double limSup, double limInf)
         {
             double resultado;
-            double a = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limSup - media) / 2, 2)));
-            double b = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limInf - media) / 2, 2)));
+            double a = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limSup - media) / desviacion, 2)));
+            double b = (1 / Math.Pow((2 * Math.PI * desviacion), (1 / 2))) * Math.Pow(Math.E, ((-1 / 2) * Math.Pow((limInf - media) / desviacion, 2)));
             return resultado = a - b;
         }
 

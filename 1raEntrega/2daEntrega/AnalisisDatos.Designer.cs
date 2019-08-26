@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblArchivo = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             // 
             // btnVisualizar
             // 
-            this.btnVisualizar.Location = new System.Drawing.Point(317, 46);
+            this.btnVisualizar.Location = new System.Drawing.Point(343, 46);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(75, 23);
             this.btnVisualizar.TabIndex = 4;
@@ -52,7 +52,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(317, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(343, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 20);
             this.btnBuscar.TabIndex = 6;
@@ -101,8 +101,8 @@
             // 
             // chrHistograma
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chrHistograma.ChartAreas.Add(chartArea2);
+            chartArea3.Name = "ChartArea1";
+            this.chrHistograma.ChartAreas.Add(chartArea3);
             this.chrHistograma.Location = new System.Drawing.Point(9, 76);
             this.chrHistograma.Name = "chrHistograma";
             this.chrHistograma.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
