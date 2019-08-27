@@ -1,0 +1,9 @@
+---Intrucciones para ejecutar el programa con Analisis de Datos---
+1) Ejecute archivo 2daEntrega.exe
+2) Seleccione en la solapa ejecutar la opcion Analisis de Datos
+3) Click en el Boton BUSCAR para seleccionar el archivo "PrimeraMuestra.txt"
+4) Click en el Boton VISUALIZAR: Se mostrara el Histograma de la muestra con 7 intervalos
+	Se abrira el excel donde se realiza la prueba de Chi Cuadrado
+	Se mostrara en la pantalla al lado del grafico la hipotesis de la muestra tomada.
+5) Puede repetir los pasos del 2 al 4 pero seleccionando el archivo "SegundaMuestra.txt"
+	para analizar los datos de la segunda muestra.
