@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace _2daEntrega
 {
@@ -148,18 +149,14 @@ namespace _2daEntrega
 
         public double ProbDistrNormal(double media, double desviacion, double limSup, double limInf)
         {
-
-            double resultado;
-            desviacion = Math.Sqrt(desviacion);
-            double zsup = (limSup - media) / desviacion;
-            double zinf = (limInf - media) / desviacion;
-            
-            double a;
-            a = (Math.Pow(Math.E,((-0.5)*(Math.Pow(zsup,2))))/(Math.Sqrt(2.0*Math.PI)) * desviacion);
-            double b;
-            b = (Math.Pow(Math.E, ((-0.5) * (Math.Pow(zinf, 2)))) / (Math.Sqrt(2.0 * Math.PI)) * desviacion);
-            return resultado =a - b; //zsup - zinf;
+            Chart chart = new Chart();
+            double zetaSup = (limSup - media)/desviacion;
+            double zetaInf = (limInf - media) / desviacion;
+            double probabilidad = chart.DataManipulator.Statistics.NormalDistribution(zetaSup);
+            probabilidad -= chart.DataManipulator.Statistics.NormalDistribution(zetaInf);
+            return probabilidad;
         }
+    
 
         public double ProbDistrExpo(double media, double limSup, double limInf)
         {
