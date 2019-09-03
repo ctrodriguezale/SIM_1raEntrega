@@ -27,5 +27,10 @@ namespace _3raEntrega
             }
         }
 
+        private void distribuciónExponencialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Distr_Exponencial pantalla = new Distr_Exponencial();
+            pantalla.ShowDialog();
+        }
     }
 }

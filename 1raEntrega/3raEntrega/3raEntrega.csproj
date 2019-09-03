@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador.cs" />
+    <Compile Include="Distr_Exponencial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Distr_Exponencial.Designer.cs">
+      <DependentUpon>Distr_Exponencial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Distr_Uniforme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Distr_Exponencial.resx">
+      <DependentUpon>Distr_Exponencial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Distr_Uniforme.resx">
       <DependentUpon>Distr_Uniforme.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +159,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibreriaSimulacion\LibreriaSimulacion.csproj">
+      <Project>{78e8a05f-206b-4376-b3ad-c60ded9e6be1}</Project>
+      <Name>LibreriaSimulacion</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

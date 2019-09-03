@@ -136,6 +136,7 @@
             this.distribuciónExponencialToolStripMenuItem.Name = "distribuciónExponencialToolStripMenuItem";
             this.distribuciónExponencialToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.distribuciónExponencialToolStripMenuItem.Text = "Distribución Exponencial";
+            this.distribuciónExponencialToolStripMenuItem.Click += new System.EventHandler(this.distribuciónExponencialToolStripMenuItem_Click);
             // 
             // distribuciónNormalToolStripMenuItem
             // 
