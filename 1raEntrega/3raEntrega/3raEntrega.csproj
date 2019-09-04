@@ -61,7 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador.cs" />
+    <Compile Include="DistribucionNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DistribucionNormal.designer.cs">
+      <DependentUpon>DistribucionNormal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Distr_Exponencial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +85,6 @@
     <Compile Include="Distr_Uniforme.Designer.cs">
       <DependentUpon>Distr_Uniforme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Estadistica.cs" />
-    <Compile Include="ExcelAPI.cs" />
-    <Compile Include="Fila.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>

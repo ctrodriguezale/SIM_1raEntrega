@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using TablaChi;
 
 namespace LibreriaSimulacion
 {
@@ -99,6 +100,10 @@ namespace LibreriaSimulacion
                 //muestra Sumatorias Chi cuadrado
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
+                TablaChi.Class1 chi2 = new Class1();
+                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+
 
                 //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
                 //xlWorkSheet.Cells[6, "H"] = "Valor de la Tabla";
@@ -190,6 +195,10 @@ namespace LibreriaSimulacion
                 //muestra Sumatorias Chi cuadrado
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
+                TablaChi.Class1 chi2 = new Class1();
+                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+
 
                 //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
                 //xlWorkSheet.Cells[6, "H"] = "Valor de la Tabla";
@@ -280,7 +289,11 @@ namespace LibreriaSimulacion
                 //muestra Sumatorias Chi cuadrado
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria Chi-Cuadrado";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
-                
+                TablaChi.Class1 chi2 = new Class1();
+                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+
+
 
                 //Crea el grafico
 
@@ -309,13 +322,6 @@ namespace LibreriaSimulacion
                 ResetCurrentCulture();
             }
         }
-
-
-
-
-
-
-
 
 
         public void exportarTablaPoisson(Fila[] tabla, double mediaObservada, double desvObservada, int cantNum, int lambda, int intervalos)
@@ -377,6 +383,9 @@ namespace LibreriaSimulacion
                 //muestra Sumatorias Chi cuadrado
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
+                TablaChi.Class1 chi2 = new Class1();
+                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
 
                 //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
                 //xlWorkSheet.Cells[6, "H"] = "Valor de la Tabla";
@@ -433,8 +442,24 @@ namespace LibreriaSimulacion
         public double ProbDistrPoisson(int lambda, double limSup, double limInf)
         {
             double resultado;
-            double a = 1 - ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limSup)) / factorial(Convert.ToInt32(limSup)));
-            double b = 1 - ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limInf)) / factorial(Convert.ToInt32(limInf)));
+            double a;
+            double b;
+            if (limSup > 50)
+            {
+                a = 1;
+            }
+            else
+            {
+                a = 1 - ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limSup)) / factorial(Convert.ToInt32(limSup)));
+            }
+            if (limInf > 50)
+            {
+                b = 1;
+            }
+            else
+            {
+                b = 1 - ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limInf)) / factorial(Convert.ToInt32(limInf)));
+            }
             // double b = 1 - Math.Pow(Math.E, (-lambda * limInf));
             return resultado = a - b;
         }
@@ -453,14 +478,11 @@ namespace LibreriaSimulacion
         {
             long resultado = 1;
 
-
             for (int i = 1; i <= numero; i++)
             {
                 resultado = resultado * i;
             }
-            MessageBox.Show("resultado: " + resultado + "    numero: " + numero);
             return resultado;
-
         }
     }
 }
