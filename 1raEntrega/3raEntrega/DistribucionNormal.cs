@@ -111,7 +111,7 @@ namespace _3raEntrega
                 listaNormales.Items.Add(Math.Round(listaVariables[i], 4).ToString());
             }
             // se genera el excel 
-            //metodos.visualizarDatos(listaVarAleatoria, cantIntervalos, lambda, cantNumeros);
+            libreria.visualizarDatos(listaVariables, cantidadIntervalos, media, desviacion, cantidadNum);
 
 
         }

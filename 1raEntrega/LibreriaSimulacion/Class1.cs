@@ -129,7 +129,7 @@ namespace LibreriaSimulacion
             return listaVarAleatoria;
         }
 
-        public void visualizarDatos(List<double> lista, int intervalos, double media, double varianza, int cantNum)
+        public void visualizarDatos(List<double> lista, int intervalos, double media, double desviacion, int cantNum)
         {
             try
             {
@@ -143,7 +143,7 @@ namespace LibreriaSimulacion
                 tabla = new Estadistica(intervalos, minimo, maximo);
                 tabularDatos();
                 //generamos el histograma
-                //excel.exportarTablaExponencial(tabla.ListaFilas, calcularMedia(lambda), calcularDesviacion(lambda), cantNum, lambda, intervalos);
+                excel.exportarTablaNormal(tabla.ListaFilas, cantNum,media, desviacion, intervalos);
                 excel.mostrar();
             }
             catch (Exception e)

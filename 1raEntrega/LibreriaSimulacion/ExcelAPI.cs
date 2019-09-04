@@ -222,7 +222,7 @@ namespace LibreriaSimulacion
             }
         }
 
-        public void exportarTablaNormal(Fila[] tabla, int cantNum, double valorA, double valorB, int intervalos)
+        public void exportarTablaNormal(Fila[] tabla, int cantNum, double media, double desviacion, int intervalos)
         {
             try
             {
@@ -234,7 +234,7 @@ namespace LibreriaSimulacion
                 //Crea el titulo
                 xlWorkSheet.Range["A3:F3"].Merge();
                 xlWorkSheet.Range["A3:F3"].Font.Size = 20;
-                xlWorkSheet.Range["A3:F3"].Value = "Distribución Uniforme";
+                xlWorkSheet.Range["A3:F3"].Value = "Distribución Normal";
                 xlWorkSheet.Range["A3:M4"].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 xlWorkSheet.Range["A3:M4"].Font.Bold = true;
                 xlWorkSheet.Range["H5:I5"].Font.Bold = true;
@@ -252,38 +252,35 @@ namespace LibreriaSimulacion
                 //xlWorkSheet.Cells[4, "C"] = "Marca de clase";
                 xlWorkSheet.Cells[4, "D"] = "Frecuencia";
                 // xlWorkSheet.Cells[4, "E"] = "Frecuencia Relativa";
-                xlWorkSheet.Cells[4, "E"] = "F. Esperada Dist. Uniforme";
-                xlWorkSheet.Cells[4, "F"] = "F. Chi Cua. Dist. Exp. Negativa";
-
-                // obtencion de parametros para distribuciones falta calcular estos parametros en base a datos del archivo ingresado
+                xlWorkSheet.Cells[4, "E"] = "F. Esperada Dist. Normal";
+                xlWorkSheet.Cells[4, "F"] = "Chi Cua. Dist. Normal";
+                
 
                 for (int i = 0; i < tabla.Length; i++)
                 {
                     xlWorkSheet.Cells[i + 5, "A"] = tabla[i].LimiteInferior;
                     xlWorkSheet.Cells[i + 5, "B"] = tabla[i].LimiteSuperior;
-                    xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
+                    //xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
                     xlWorkSheet.Cells[i + 5, "D"] = tabla[i].Frecuencia;
                     // xlWorkSheet.Cells[i + 5, "E"] = tabla[i].Frecuencia / cantNumeros;
 
                     //distribuciones esperadas
                     double observado = tabla[i].Frecuencia;
 
-                    double esperadoExpo = ProbDistrUniforme(valorA, valorB, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * cantNumeros;
+                    double normalEsperado= ProbDistrNormal(media, desviacion, tabla[i].LimiteSuperior, tabla[i].LimiteInferior) * cantNumeros;
 
-                    xlWorkSheet.Cells[i + 5, "E"] = esperadoExpo;
+                    xlWorkSheet.Cells[i + 5, "E"] = normalEsperado;
 
                     // calculo de valores de chi cuadrado
-                    chi = Math.Pow(observado - esperadoExpo, 2) / esperadoExpo;
+                    chi = Math.Pow(observado - normalEsperado, 2) / normalEsperado;
                     xlWorkSheet.Cells[i + 5, "F"] = chi;
                     sumaChi = sumaChi + chi;
 
                 }
                 //muestra Sumatorias Chi cuadrado
-                xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
+                xlWorkSheet.Cells[5, "H"] = "Sumatoria Chi-Cuadrado";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
-
-                //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
-                //xlWorkSheet.Cells[6, "H"] = "Valor de la Tabla";
+                
 
                 //Crea el grafico
 
