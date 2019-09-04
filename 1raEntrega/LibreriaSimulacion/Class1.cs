@@ -86,6 +86,87 @@ namespace LibreriaSimulacion
 
     public class DistribucionNormal
     {
+        List<Double> variables;
+        Estadistica tabla;
+
+        public DistribucionNormal()
+        {
+            variables = new List<double>();
+            tabla = null;
+        }
+
+        public static double GenerarAleatorio()
+        {
+            Random aleatorio = new Random();
+            return aleatorio.NextDouble();
+        }
+
+        public double generarVariableAleatoriaNormal(double media, double desviacion)
+        {
+            double varAleatoria;
+            double aux;
+            //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+
+            aux = Math.Sqrt(-2 * Math.Log(GenerarAleatorio())) * Math.Sin(2 * Math.PI * GenerarAleatorio());
+            //aleatoria = =normalmed+D7*normalvar
+
+            varAleatoria = media + aux * desviacion;
+
+            return varAleatoria;
+        }
+
+
+        public List<double> generarListaVariablesNormal(int cantNumeros, double media, double desviacion)
+        {
+
+            List<double> listaVarAleatoria = new List<double>();
+
+            for (int i = 0; i < cantNumeros; i++)
+            {
+                listaVarAleatoria.Add(generarVariableAleatoriaNormal(media, desviacion));
+                Thread.Sleep(15);
+            }
+            return listaVarAleatoria;
+        }
+
+        public void visualizarDatos(List<double> lista, int intervalos, double media, double varianza, int cantNum)
+        {
+            try
+            {
+                double minimo, maximo;
+                ExcelAPI excel = new ExcelAPI("");
+                //abrimos el archivo y extraemos los datos
+                variables = lista;
+                minimo = variables.Min();
+                maximo = variables.Max();
+                //contabilizamos las frecuencias
+                tabla = new Estadistica(intervalos, minimo, maximo);
+                tabularDatos();
+                //generamos el histograma
+                //excel.exportarTablaExponencial(tabla.ListaFilas, calcularMedia(lambda), calcularDesviacion(lambda), cantNum, lambda, intervalos);
+                excel.mostrar();
+            }
+            catch (Exception e)
+            {
+                //pantalla.MostrarError("Error: " + e.Message);
+            }
+        }
+
+        private void tabularDatos()
+        {
+            //distribuye los valores en los intervalos
+            foreach (var variable in variables)
+            {
+                tabla.agregarObservacion(variable);
+            }
+        }
+
+
+
+
+
+
+
     }
 
     public class DistribucionExponencial
