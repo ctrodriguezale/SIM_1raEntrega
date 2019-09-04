@@ -32,5 +32,11 @@ namespace _3raEntrega
             Distr_Exponencial pantalla = new Distr_Exponencial();
             pantalla.ShowDialog();
         }
+
+        private void distribuciónUniformeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Distr_Uniforme pantalla = new Distr_Uniforme();
+            pantalla.ShowDialog();
+        }
     }
 }

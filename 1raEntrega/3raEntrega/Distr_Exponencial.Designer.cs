@@ -153,6 +153,7 @@
             // 
             // txb_lambda
             // 
+            this.txb_lambda.DecimalPlaces = 2;
             this.txb_lambda.Location = new System.Drawing.Point(297, 43);
             this.txb_lambda.Maximum = new decimal(new int[] {
             999999,

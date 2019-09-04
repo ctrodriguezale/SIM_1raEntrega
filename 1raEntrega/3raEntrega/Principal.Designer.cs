@@ -128,26 +128,27 @@
             // distribuciónUniformeToolStripMenuItem
             // 
             this.distribuciónUniformeToolStripMenuItem.Name = "distribuciónUniformeToolStripMenuItem";
-            this.distribuciónUniformeToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.distribuciónUniformeToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.distribuciónUniformeToolStripMenuItem.Text = "Distribución Uniforme";
+            this.distribuciónUniformeToolStripMenuItem.Click += new System.EventHandler(this.distribuciónUniformeToolStripMenuItem_Click);
             // 
             // distribuciónExponencialToolStripMenuItem
             // 
             this.distribuciónExponencialToolStripMenuItem.Name = "distribuciónExponencialToolStripMenuItem";
-            this.distribuciónExponencialToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.distribuciónExponencialToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.distribuciónExponencialToolStripMenuItem.Text = "Distribución Exponencial";
             this.distribuciónExponencialToolStripMenuItem.Click += new System.EventHandler(this.distribuciónExponencialToolStripMenuItem_Click);
             // 
             // distribuciónNormalToolStripMenuItem
             // 
             this.distribuciónNormalToolStripMenuItem.Name = "distribuciónNormalToolStripMenuItem";
-            this.distribuciónNormalToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.distribuciónNormalToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.distribuciónNormalToolStripMenuItem.Text = "Distribución Normal";
             // 
             // distribuciónPoissonToolStripMenuItem
             // 
             this.distribuciónPoissonToolStripMenuItem.Name = "distribuciónPoissonToolStripMenuItem";
-            this.distribuciónPoissonToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.distribuciónPoissonToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.distribuciónPoissonToolStripMenuItem.Text = "Distribución Poisson";
             // 
             // Principal

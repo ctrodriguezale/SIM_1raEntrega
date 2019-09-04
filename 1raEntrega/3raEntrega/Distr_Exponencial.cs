@@ -15,7 +15,7 @@ namespace _3raEntrega
     {
         int cantNumeros;
         int cantIntervalos;
-        int lambda;
+        double lambda;
 
         LibreriaSimulacion.DistribucionExponencial metodos = new DistribucionExponencial();
 
@@ -38,7 +38,7 @@ namespace _3raEntrega
             //Configuramos los valores iniciales
             cantNumeros = (int)tbx_cant_variables.Value;
             cantIntervalos = (int)txb_cant_intervalos.Value;
-            lambda = (int)txb_lambda.Value;
+            lambda = (double)txb_lambda.Value;
             List<double> listaVarAleatoria = new List<double>();
             
             //se generan los variables aleatorios y se guardan en el vector

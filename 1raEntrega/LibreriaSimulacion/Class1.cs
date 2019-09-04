@@ -10,6 +10,78 @@ namespace LibreriaSimulacion
 {
     public class DistribucionUniforme
     {
+   
+        List<double> listaVariables;
+        Estadistica tabla;
+
+
+        public DistribucionUniforme()
+        {
+            listaVariables = new List<double>();
+            tabla = null;
+        }
+
+        public static double GenerarAleatorio()
+        {
+            Random aleatorio = new Random();
+            return aleatorio.NextDouble();
+        }
+
+        public double generarVariablesAleatorias(double valorA, double valorB)
+        {
+            double varAleatoria;
+            // A + aleatorio * (B-A)
+            
+            varAleatoria = valorA + (GenerarAleatorio() * (valorB - valorA) );
+            return varAleatoria;
+        }
+
+        public List<double> generarListaVariablesAleatorias(int cantNumeros, double valorA, double valorB)
+        {
+
+            List<double> listaVarAleatoria = new List<double>();
+
+            
+            for (int i = 0; i < cantNumeros; i++)
+            {
+                listaVarAleatoria.Add(generarVariablesAleatorias(valorA, valorB));
+                Thread.Sleep(15);
+            }
+            return listaVarAleatoria;
+        }
+
+        public void visualizarDatos(List<double> lista, int intervalos, double valorA, double valorB, int cantNum)
+        {
+            try
+            {
+                double minimo, maximo;
+                ExcelAPI excel = new ExcelAPI("");
+                //abrimos el archivo y extraemos los datos
+                listaVariables = lista;
+                minimo = listaVariables.Min();
+                maximo = listaVariables.Max();
+                //contabilizamos las frecuencias
+                tabla = new Estadistica(intervalos, minimo, maximo);
+                tabularDatos();
+                //generamos el histograma
+                excel.exportarTablaUniforme(tabla.ListaFilas, cantNum, valorA, valorB, intervalos);
+                excel.mostrar();
+            }
+            catch (Exception e)
+            {
+                //pantalla.MostrarError("Error: " + e.Message);
+            }
+        }
+
+        private void tabularDatos()
+        {
+            //distribuye los valores en los intervalos
+            foreach (var variable in listaVariables)
+            {
+                tabla.agregarObservacion(variable);
+            }
+        }
+
     }
 
     public class DistribucionNormal
@@ -37,8 +109,8 @@ namespace LibreriaSimulacion
         public double generarVariablesAleatorias(double lambda)
         {
             double varAleatoria;
-                //numAleatorio = GenerarAleatorio();
-                varAleatoria = (-1.0 / lambda) * Math.Log(1 - GenerarAleatorio());
+            //=(-1/VarLambda)*LN(1-nuAaleatorio)
+            varAleatoria = (-1.0 / lambda) * Math.Log(1 - GenerarAleatorio());
             return varAleatoria;
         }
 
@@ -47,7 +119,6 @@ namespace LibreriaSimulacion
 
             List<double> listaVarAleatoria = new List<double>();
 
-            //=(-1/VarLambda)*LN(1-nuAaleatorio)
             for (int i = 0; i < cantNumeros; i++)
             {
                 listaVarAleatoria.Add(generarVariablesAleatorias(lambda));
@@ -56,7 +127,7 @@ namespace LibreriaSimulacion
             return listaVarAleatoria;
         }
 
-        public void visualizarDatos(List<double> lista, int intervalos, int lambda, int cantNum)
+        public void visualizarDatos(List<double> lista, int intervalos, double lambda, int cantNum)
         {
             try
             {
@@ -88,12 +159,12 @@ namespace LibreriaSimulacion
             }
         }
 
-        public double calcularDesviacion(int lambda)
+        public double calcularDesviacion(double lambda)
         {
             return 1 / Math.Pow(lambda, 2);
         }
 
-        public double calcularMedia(int lamda)
+        public double calcularMedia(double lamda)
         {
             return 1 / lamda;
         }
