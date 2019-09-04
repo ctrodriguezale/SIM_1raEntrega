@@ -38,5 +38,11 @@ namespace _3raEntrega
             Distr_Uniforme pantalla = new Distr_Uniforme();
             pantalla.ShowDialog();
         }
+
+        private void distribuciónPoissonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Distr_Poisson pantalla = new Distr_Poisson();
+            pantalla.ShowDialog();
+        }
     }
 }

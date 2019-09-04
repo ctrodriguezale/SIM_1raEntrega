@@ -68,7 +68,7 @@ namespace _3raEntrega
 
         private bool validarValoresCorrectos(double valorA, double valorB)
         {
-            if ((valorA ==  valorB) || (valorA < 0 && valorA > valorB) || (valorA > 0 && valorB < 0) || (valorB == 0 && valorA > 0))
+            if ((valorA ==  valorB) || (valorA < 0 && valorA > valorB) || (valorA == 0 && valorB < 0) || (valorA > 0 && valorA < 1 && valorB < 0) || (valorB == 0 && valorA > 0) || (valorB > 0 && valorB < 1 && valorA > 0))
             {
                 return false;
             }

@@ -63,7 +63,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Ingrese los Parametros necesarios:";
+            this.label1.Text = "Ingrese los Parámetros necesarios:";
             // 
             // btn_generar
             // 

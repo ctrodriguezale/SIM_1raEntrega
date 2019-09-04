@@ -150,6 +150,7 @@
             this.distribuciónPoissonToolStripMenuItem.Name = "distribuciónPoissonToolStripMenuItem";
             this.distribuciónPoissonToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.distribuciónPoissonToolStripMenuItem.Text = "Distribución Poisson";
+            this.distribuciónPoissonToolStripMenuItem.Click += new System.EventHandler(this.distribuciónPoissonToolStripMenuItem_Click);
             // 
             // Principal
             // 

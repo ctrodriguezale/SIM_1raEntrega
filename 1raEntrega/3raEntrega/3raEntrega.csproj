@@ -68,6 +68,12 @@
     <Compile Include="Distr_Exponencial.Designer.cs">
       <DependentUpon>Distr_Exponencial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Distr_Poisson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Distr_Poisson.Designer.cs">
+      <DependentUpon>Distr_Poisson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Distr_Uniforme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Distr_Exponencial.resx">
       <DependentUpon>Distr_Exponencial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Distr_Poisson.resx">
+      <DependentUpon>Distr_Poisson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Distr_Uniforme.resx">
       <DependentUpon>Distr_Uniforme.cs</DependentUpon>
