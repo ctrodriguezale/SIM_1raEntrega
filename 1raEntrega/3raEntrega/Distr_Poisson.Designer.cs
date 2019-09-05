@@ -45,6 +45,7 @@
             // 
             // txb_lambda
             // 
+            this.txb_lambda.DecimalPlaces = 2;
             this.txb_lambda.Location = new System.Drawing.Point(297, 45);
             this.txb_lambda.Maximum = new decimal(new int[] {
             999999,
@@ -52,18 +53,13 @@
             0,
             0});
             this.txb_lambda.Minimum = new decimal(new int[] {
-            1,
+            999999,
             0,
             0,
-            0});
+            -2147483648});
             this.txb_lambda.Name = "txb_lambda";
             this.txb_lambda.Size = new System.Drawing.Size(86, 20);
             this.txb_lambda.TabIndex = 24;
-            this.txb_lambda.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // label4
             // 
@@ -109,8 +105,8 @@
             // 
             this.tbx_cant_variables.Location = new System.Drawing.Point(134, 45);
             this.tbx_cant_variables.Maximum = new decimal(new int[] {
-            -727379969,
-            232,
+            999999,
+            0,
             0,
             0});
             this.tbx_cant_variables.Minimum = new decimal(new int[] {

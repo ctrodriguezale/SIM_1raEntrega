@@ -26,94 +26,47 @@ namespace _3raEntrega
             InitializeComponent();
         }
 
-        private void txtMedia_KeyPress(object sender, KeyPressEventArgs e)
+        private void btn_generar_Click(object sender, EventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("Este cáracter no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void txtDesviacion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("Este cáracter no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void txtCantidadNumeros_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("Este cáracter no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void txtCantidadIntervalos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("Este cáracter no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnGenerar_Click(object sender, EventArgs e)
-        {
-            cantidadIntervalos = int.Parse(txtCantidadIntervalos.Text);
-            cantidadNum = int.Parse(txtCantidadNumeros.Text);
-            media = double.Parse(txtMedia.Text);
-            desviacion = double.Parse(txtDesviacion.Text);
+            cantidadIntervalos = (int)tbx_cant_variables.Value;
+            cantidadNum = (int)txb_cant_intervalos.Value;
+            media = (double)txb_media.Value;
+            desviacion = (double)txb_desviacion.Value;
 
             List<double> listaVariables = new List<double>();
 
-            //se generan los variables aleatorios y se guardan en el vector
-            listaVariables = libreria.generarListaVariablesNormal(cantidadNum, media, desviacion);
-            // se recorre el vector con las variables aleatorias y las muestras en la lista de la pantalla
-            for (int i = 0; i < listaVariables.Count(); i++)
+            if (!validarValoresCorrectos(media, desviacion))
             {
-                listaNormales.Items.Add(Math.Round(listaVariables[i], 4).ToString());
+
+                MessageBox.Show("Ingrese parametros Válidos", "Advertencia", MessageBoxButtons.OK);
             }
-            // se genera el excel 
-            libreria.visualizarDatos(listaVariables, cantidadIntervalos, media, desviacion, cantidadNum);
+            else
+            {
+                //se generan los variables aleatorios y se guardan en el vector
+                listaVariables = libreria.generarListaVariablesNormal(cantidadNum, media, desviacion);
+                // se recorre el vector con las variables aleatorias y las muestras en la lista de la pantalla
+                for (int i = 0; i < listaVariables.Count(); i++)
+                {
+                    listVarAlea.Items.Add(Math.Round(listaVariables[i], 4).ToString());
+                }
+                // se genera el excel 
+                libreria.visualizarDatos(listaVariables, cantidadIntervalos, media, desviacion, cantidadNum);
+            }
 
+        }
 
+        private void btn_cerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private bool validarValoresCorrectos(double media, double desviacion)
+        {
+            if (desviacion>media) { MessageBox.Show("El valor de la Media no puede ser Menor al valor de la Desviación", "Advertencia", MessageBoxButtons.OK); return false; }
+
+            if (desviacion < 1) { MessageBox.Show("La Desviación no puede ser Negativa o igual a 0", "Advertencia", MessageBoxButtons.OK); return false; }
+
+            return true;
         }
     }
 }

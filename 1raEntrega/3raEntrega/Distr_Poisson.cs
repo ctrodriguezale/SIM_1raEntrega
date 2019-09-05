@@ -20,7 +20,7 @@ namespace _3raEntrega
 
         int cantNumeros;
         int cantIntervalos;
-        int lambda;
+        double lambda;
 
         LibreriaSimulacion.DistribucionPoisson metodos = new DistribucionPoisson();
 
@@ -37,18 +37,32 @@ namespace _3raEntrega
             //Configuramos los valores iniciales
             cantNumeros = (int)tbx_cant_variables.Value;
             cantIntervalos = (int)txb_cant_intervalos.Value;
-            lambda = (int)txb_lambda.Value;
+            lambda = (double)txb_lambda.Value;
             List<double> listaVarAleatoria = new List<double>();
 
-            //se generan los variables aleatorios y se guardan en el vector
-            listaVarAleatoria = metodos.generarListaVariablesAleatorias(cantNumeros, lambda);
-            // se recorre el vector con las variables aleatorias y las muestras en la lista de la pantalla
-            for (int i = 0; i < listaVarAleatoria.Count(); i++)
+            if (!validarValoresCorrectos(lambda))
             {
-                listVarAlea.Items.Add(Math.Round(listaVarAleatoria[i], 4).ToString());
+
+                MessageBox.Show("Ingrese parametros Válidos", "Advertencia", MessageBoxButtons.OK);
             }
-            // se genera el excel 
-            metodos.visualizarDatos(listaVarAleatoria, cantIntervalos, lambda, cantNumeros);
+            else
+            {
+                //se generan los variables aleatorios y se guardan en el vector
+                listaVarAleatoria = metodos.generarListaVariablesAleatorias(cantNumeros, lambda);
+                // se recorre el vector con las variables aleatorias y las muestras en la lista de la pantalla
+                for (int i = 0; i < listaVarAleatoria.Count(); i++)
+                {
+                    listVarAlea.Items.Add(Math.Round(listaVarAleatoria[i], 4).ToString());
+                }
+                // se genera el excel 
+                metodos.visualizarDatos(listaVarAleatoria, cantIntervalos, lambda, cantNumeros);
+            }
+        }
+        private bool validarValoresCorrectos(double lambda)
+        {
+            if (lambda < 1) { MessageBox.Show("El valor de Lambda deber ser mayor o igual a 1", "Advertencia", MessageBoxButtons.OK); return false; }
+
+            return true;
         }
     }
 }

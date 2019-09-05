@@ -14,8 +14,8 @@ namespace TablaChi
             {
                 probabilidad = 1 - probabilidad;
                 StreamReader Archivo;
-                switch (probabilidad)
-                {
+                  switch (Math.Round(probabilidad, 4))
+                  {
                     case 0.001:
                         Archivo = new StreamReader("0.001.txt");
                         break;

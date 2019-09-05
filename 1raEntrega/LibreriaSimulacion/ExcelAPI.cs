@@ -101,8 +101,8 @@ namespace LibreriaSimulacion
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
                 TablaChi.Class1 chi2 = new Class1();
-                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
-                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+                xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
 
 
                 //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
@@ -196,8 +196,8 @@ namespace LibreriaSimulacion
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
                 TablaChi.Class1 chi2 = new Class1();
-                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
-                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+                xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 2);
 
 
                 //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
@@ -269,7 +269,7 @@ namespace LibreriaSimulacion
                 {
                     xlWorkSheet.Cells[i + 5, "A"] = tabla[i].LimiteInferior;
                     xlWorkSheet.Cells[i + 5, "B"] = tabla[i].LimiteSuperior;
-                    //xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
+                    xlWorkSheet.Cells[i + 5, "C"] = tabla[i].conocerMedia();
                     xlWorkSheet.Cells[i + 5, "D"] = tabla[i].Frecuencia;
                     // xlWorkSheet.Cells[i + 5, "E"] = tabla[i].Frecuencia / cantNumeros;
 
@@ -290,8 +290,8 @@ namespace LibreriaSimulacion
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria Chi-Cuadrado";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
                 TablaChi.Class1 chi2 = new Class1();
-                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
-                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+                xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 2);
 
 
 
@@ -323,8 +323,7 @@ namespace LibreriaSimulacion
             }
         }
 
-
-        public void exportarTablaPoisson(Fila[] tabla, double mediaObservada, double desvObservada, int cantNum, int lambda, int intervalos)
+        public void exportarTablaPoisson(Fila[] tabla, int cantNum, double lambda, int intervalos)
         {
             try
             {
@@ -384,8 +383,8 @@ namespace LibreriaSimulacion
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
                 TablaChi.Class1 chi2 = new Class1();
-                //xlWorkSheet.Cells[6, "H"] = "Valor x^2";
-                //xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
+                xlWorkSheet.Cells[6, "H"] = "Valor x^2";
+                xlWorkSheet.Cells[6, "I"] = chi2.ValorChi2(0.95, intervalos, 1);
 
                 //xlWorkSheet.Cells[6, "I"].Formula="CHISQ.INV.RT(0,05;"+(intervalos-2)+")"; //"11.07";
                 //xlWorkSheet.Cells[6, "H"] = "Valor de la Tabla";
@@ -439,14 +438,14 @@ namespace LibreriaSimulacion
             return resultado = a - b;
         }
 
-        public double ProbDistrPoisson(int lambda, double limSup, double limInf)
+        public double ProbDistrPoisson(double lambda, double limSup, double limInf)
         {
             double resultado;
             double a;
             double b;
             if (limSup > 50)
             {
-                a = 1;
+                a = 1.00001;
             }
             else
             {
@@ -485,4 +484,4 @@ namespace LibreriaSimulacion
             return resultado;
         }
     }
-}
+    }

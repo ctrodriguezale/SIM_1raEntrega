@@ -88,6 +88,7 @@ namespace LibreriaSimulacion
     {
         List<Double> variables;
         Estadistica tabla;
+        Boolean ban = true;
 
         public DistribucionNormal()
         {
@@ -100,19 +101,65 @@ namespace LibreriaSimulacion
             Random aleatorio = new Random();
             return aleatorio.NextDouble();
         }
+        public static double GenerarAleatorioNuevo()
+        {
+            Random aleatorio2 = new Random();
+            return aleatorio2.NextDouble();
+        }
+
 
         public double generarVariableAleatoriaNormal(double media, double desviacion)
         {
             double varAleatoria;
             double aux;
-            //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+            double auxiliarParaAleatorio;
+            double auxiliarParaAleatorio2;
 
-            aux = Math.Sqrt(-2 * Math.Log(GenerarAleatorio())) * Math.Sin(2 * Math.PI * GenerarAleatorio());
-            //aleatoria = =normalmed+D7*normalvar
 
-            varAleatoria = media + aux * desviacion;
+            if (ban == true)
+            {
 
-            return varAleatoria;
+                auxiliarParaAleatorio = GenerarAleatorio();
+                auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
+                //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+
+                aux = Math.Sqrt(-2 * Math.Log(auxiliarParaAleatorio)) * Math.Sin(2 * Math.PI * (auxiliarParaAleatorio2 + 1));
+                //aleatoria = =normalmed+D7*normalvar
+
+                varAleatoria = media + aux * Math.Sqrt(desviacion);
+                ban = false;
+                return varAleatoria;
+            }
+            else
+            {
+
+                auxiliarParaAleatorio = GenerarAleatorio();
+                auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
+                //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+
+                aux = Math.Sqrt(-2 * Math.Log(auxiliarParaAleatorio)) * Math.Cos(2 * Math.PI * (auxiliarParaAleatorio2 + 1));
+                //aleatoria = =normalmed+D7*normalvar
+
+                varAleatoria = media + aux * Math.Sqrt(desviacion);
+                ban = true;
+
+                return varAleatoria;
+
+            }
+
+
+
+
+            //auxiliarParaAleatorio = GenerarAleatorio();
+            //auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
+            ////=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+
+            //aux = Math.Sqrt(-2 * Math.Log(auxiliarParaAleatorio)) * Math.Sin(2 * Math.PI * (auxiliarParaAleatorio2 + 1));
+            ////aleatoria = =normalmed+D7*normalvar
+
+            //varAleatoria = media + aux * Math.Sqrt(desviacion);
+
+            //return varAleatoria;
         }
 
 
@@ -160,13 +207,6 @@ namespace LibreriaSimulacion
                 tabla.agregarObservacion(variable);
             }
         }
-
-
-
-
-
-
-
     }
 
     public class DistribucionExponencial
@@ -255,7 +295,7 @@ namespace LibreriaSimulacion
     {
         List<double> listaVariables;
         Estadistica tabla;
-        public List<double> generarListaVariablesAleatorias(int vueltas, int landa)
+        public List<double> generarListaVariablesAleatorias(int vueltas, double landa)
         {
             List<double> vector = new List<double>(); ;
             double x = 0;
@@ -286,7 +326,7 @@ namespace LibreriaSimulacion
             Random aleatorio = new Random();
             return aleatorio.NextDouble();
         }
-        public void visualizarDatos(List<double> lista, int intervalos, int lambda, int cantNum)
+        public void visualizarDatos(List<double> lista, int intervalos, double lambda, int cantNum)
         {
             try
             {
@@ -300,7 +340,7 @@ namespace LibreriaSimulacion
                 tabla = new Estadistica(intervalos, minimo, maximo);
                 tabularDatos();
                 //generamos el histograma
-                excel.exportarTablaPoisson(tabla.ListaFilas, calcularMedia(lambda), calcularDesviacion(lambda), cantNum, lambda, intervalos);
+                excel.exportarTablaPoisson(tabla.ListaFilas, cantNum, lambda, intervalos);
                 excel.mostrar();
             }
             catch (Exception e)
@@ -316,12 +356,12 @@ namespace LibreriaSimulacion
                 tabla.agregarObservacion(variable);
             }
         }
-        public double calcularDesviacion(int lambda)
+        public double calcularDesviacion(double lambda)
         {
             return Math.Sqrt(lambda); ;
         }
 
-        public double calcularMedia(int lamda)
+        public double calcularMedia(double lamda)
         {
             return lamda;
         }
