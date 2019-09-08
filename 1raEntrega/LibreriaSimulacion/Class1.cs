@@ -13,7 +13,9 @@ namespace LibreriaSimulacion
    
         List<double> listaVariables;
         Estadistica tabla;
-
+        double x1;
+        double x2 = 0;
+        int primerValor = 0;
 
         public DistribucionUniforme()
         {
@@ -21,10 +23,17 @@ namespace LibreriaSimulacion
             tabla = null;
         }
 
-        public static double GenerarAleatorio()
+        public double GenerarAleatorio()
         {
-            Random aleatorio = new Random();
-            return aleatorio.NextDouble();
+            if (primerValor == x2)
+            {
+                Random aleatorio = new Random();
+                primerValor = aleatorio.Next(0, 9998);
+                x1 = primerValor;
+            }
+            x2 = (67 * x1 + 71) % 9999;
+            x1 = x2;
+            return x2 / 10000;
         }
 
         public double generarVariablesAleatorias(double valorA, double valorB)
@@ -89,6 +98,9 @@ namespace LibreriaSimulacion
         List<Double> variables;
         Estadistica tabla;
         Boolean ban = true;
+        double x1;
+        double x2 = 0;
+        int primerValor = 0;
 
         public DistribucionNormal()
         {
@@ -96,15 +108,37 @@ namespace LibreriaSimulacion
             tabla = null;
         }
 
-        public static double GenerarAleatorio()
+        //public static double GenerarAleatorio()
+        //{
+        //    Random aleatorio = new Random();
+        //    return aleatorio.NextDouble();
+        //}
+        //public static double GenerarAleatorioNuevo()
+        //{
+        //    Random aleatorio2 = new Random();
+        //    return aleatorio2.NextDouble();
+        //}
+
+        public double GenerarAleatorio()
         {
-            Random aleatorio = new Random();
-            return aleatorio.NextDouble();
-        }
-        public static double GenerarAleatorioNuevo()
-        {
-            Random aleatorio2 = new Random();
-            return aleatorio2.NextDouble();
+            //if (primerValor == x2)
+            //{
+            //    Random aleatorio = new Random();
+            //    primerValor = aleatorio.Next(0, 9998);
+            while (primerValor == x2)
+            {
+                Random aleatorio = new Random();
+                primerValor = aleatorio.Next(0, 9998);
+                x1 = primerValor;
+                Thread.Sleep(5);
+            }
+            //    x1 = primerValor;
+            //}
+            x2 = (67 * x1 + 71) % 9999;
+            x1 = x2;
+            return x2 / 10000;
+
+
         }
 
 
@@ -112,40 +146,40 @@ namespace LibreriaSimulacion
         {
             double varAleatoria;
             double aux;
-            double auxiliarParaAleatorio;
-            double auxiliarParaAleatorio2;
+            //double auxiliarParaAleatorio;
+            //double auxiliarParaAleatorio2;
 
 
-            if (ban == true)
-            {
+            //if (ban == true)
+            //{
 
-                auxiliarParaAleatorio = GenerarAleatorio();
-                auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
-                //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+            //auxiliarParaAleatorio = GenerarAleatorio();
+            //auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
+            //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
 
-                aux = Math.Sqrt(-2 * Math.Log(auxiliarParaAleatorio)) * Math.Sin(2 * Math.PI * (auxiliarParaAleatorio2 + 1));
-                //aleatoria = =normalmed+D7*normalvar
+            aux = Math.Sqrt(-2 * Math.Log(GenerarAleatorio())) * Math.Sin(2 * Math.PI * (GenerarAleatorio()));
+            //aleatoria = =normalmed+D7*normalvar
 
-                varAleatoria = media + aux * Math.Sqrt(desviacion);
-                ban = false;
-                return varAleatoria;
-            }
-            else
-            {
+            varAleatoria = media + aux * Math.Sqrt(desviacion);
+            ban = false;
+            return varAleatoria;
+            //}
+            //else
+            //{
 
-                auxiliarParaAleatorio = GenerarAleatorio();
-                auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
-                //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
+            //    //auxiliarParaAleatorio = GenerarAleatorio();
+            //    //auxiliarParaAleatorio2 = GenerarAleatorioNuevo();
+            //    //=RAIZ(-2*LN((random1)))*SENO((2*PI()*random2))
 
-                aux = Math.Sqrt(-2 * Math.Log(auxiliarParaAleatorio)) * Math.Cos(2 * Math.PI * (auxiliarParaAleatorio2 + 1));
-                //aleatoria = =normalmed+D7*normalvar
+            //    aux = Math.Sqrt(-2 * Math.Log(GenerarAleatorio())) * Math.Cos(2 * Math.PI * (GenerarAleatorio()));
+            //    //aleatoria = =normalmed+D7*normalvar
 
-                varAleatoria = media + aux * Math.Sqrt(desviacion);
-                ban = true;
+            //    varAleatoria = media + aux * Math.Sqrt(desviacion);
+            //    ban = true;
 
-                return varAleatoria;
+            //    return varAleatoria;
 
-            }
+            //}
 
 
 
@@ -190,7 +224,7 @@ namespace LibreriaSimulacion
                 tabla = new Estadistica(intervalos, minimo, maximo);
                 tabularDatos();
                 //generamos el histograma
-                excel.exportarTablaNormal(tabla.ListaFilas, cantNum,media, desviacion, intervalos);
+                excel.exportarTablaNormal(tabla.ListaFilas, cantNum, media, desviacion, intervalos);
                 excel.mostrar();
             }
             catch (Exception e)
@@ -213,6 +247,9 @@ namespace LibreriaSimulacion
     {
         List<double> listaVariables;
         Estadistica tabla;
+        double x1;
+        double x2 = 0;
+        int primerValor = 0;
 
 
         public DistribucionExponencial()
@@ -221,10 +258,19 @@ namespace LibreriaSimulacion
             tabla = null;
         }
 
-        public static double GenerarAleatorio()
+        public double GenerarAleatorio()
         {
-            Random aleatorio = new Random(); 
-            return aleatorio.NextDouble();
+            //Random aleatorio = new Random(); 
+            //return aleatorio.NextDouble();
+            if (primerValor == x2)
+            {
+                Random aleatorio = new Random();
+                primerValor = aleatorio.Next(0, 9998);
+                x1 = primerValor;
+            }
+            x2 = (67 * x1 + 71) % 9999;
+            x1 = x2;
+            return x2 / 10000;
         }
 
         public double generarVariablesAleatorias(double lambda)
@@ -295,6 +341,10 @@ namespace LibreriaSimulacion
     {
         List<double> listaVariables;
         Estadistica tabla;
+        double x1;
+        double x2 = 0;
+        int primerValor = 0;
+
         public List<double> generarListaVariablesAleatorias(int vueltas, double landa)
         {
             List<double> vector = new List<double>(); ;
@@ -321,10 +371,20 @@ namespace LibreriaSimulacion
             }
             return vector;
         }
-        public static double GenerarAleatorio()
+        public double GenerarAleatorio()
         {
-            Random aleatorio = new Random();
-            return aleatorio.NextDouble();
+            //Random aleatorio = new Random();
+            //return aleatorio.NextDouble();
+            if (primerValor == x2)
+            {
+                Random aleatorio = new Random();
+                primerValor = aleatorio.Next(0, 9998);
+                x1 = primerValor;
+            }
+            x2 = (67 * x1 + 71) % 9999;
+            x1 = x2;
+            return x2 / 10000;
+
         }
         public void visualizarDatos(List<double> lista, int intervalos, double lambda, int cantNum)
         {

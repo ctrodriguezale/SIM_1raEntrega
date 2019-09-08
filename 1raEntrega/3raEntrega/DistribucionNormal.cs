@@ -28,8 +28,8 @@ namespace _3raEntrega
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
-            cantidadIntervalos = (int)tbx_cant_variables.Value;
-            cantidadNum = (int)txb_cant_intervalos.Value;
+            cantidadIntervalos = (int)txb_cant_intervalos.Value;
+            cantidadNum = (int)tbx_cant_variables.Value;
             media = (double)txb_media.Value;
             desviacion = (double)txb_desviacion.Value;
 
@@ -62,7 +62,7 @@ namespace _3raEntrega
 
         private bool validarValoresCorrectos(double media, double desviacion)
         {
-            if (desviacion>media) { MessageBox.Show("El valor de la Media no puede ser Menor al valor de la Desviación", "Advertencia", MessageBoxButtons.OK); return false; }
+            if (desviacion>Math.Abs(media)) { MessageBox.Show("El valor absoluto de la Media no puede ser Menor al valor de la Desviación", "Advertencia", MessageBoxButtons.OK); return false; }
 
             if (desviacion < 1) { MessageBox.Show("La Desviación no puede ser Negativa o igual a 0", "Advertencia", MessageBoxButtons.OK); return false; }
 

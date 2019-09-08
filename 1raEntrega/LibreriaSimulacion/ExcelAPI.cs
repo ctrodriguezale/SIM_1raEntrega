@@ -443,24 +443,27 @@ namespace LibreriaSimulacion
             double resultado;
             double a;
             double b;
-            if (limSup > 50)
-            {
-                a = 1.00001;
-            }
-            else
-            {
-                a = 1 - ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limSup)) / factorial(Convert.ToInt32(limSup)));
-            }
-            if (limInf > 50)
-            {
-                b = 1;
-            }
-            else
-            {
-                b = 1 - ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limInf)) / factorial(Convert.ToInt32(limInf)));
-            }
-            // double b = 1 - Math.Pow(Math.E, (-lambda * limInf));
-            return resultado = a - b;
+            a = ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limSup)) / factorial(Convert.ToInt32(limSup)));
+            b = ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limInf)) / factorial(Convert.ToInt32(limInf)));
+
+            //if (limSup > 50)
+            //{
+            //    a = 1.00001;
+            //}
+            //else
+            //{
+                
+            //}
+            //if (limInf > 50)
+            //{
+            //    b = 1;
+            //}
+            //else
+            //{
+                
+            //}
+            //// double b = 1 - Math.Pow(Math.E, (-lambda * limInf));
+            return Math.Abs(resultado = a - b);
         }
 
         public double ProbDistrNormal(double media, double desviacion, double limSup, double limInf)
@@ -473,15 +476,17 @@ namespace LibreriaSimulacion
             return probabilidad;
         }
 
-        public long factorial(int numero)
+        public int factorial(int numero)
         {
-            long resultado = 1;
 
-            for (int i = 1; i <= numero; i++)
+            int count = numero;
+            int factorial = 1;
+            while (count >= 1)
             {
-                resultado = resultado * i;
+                factorial = factorial * count;
+                count= count-1;
             }
-            return resultado;
+            return factorial;
         }
     }
     }
