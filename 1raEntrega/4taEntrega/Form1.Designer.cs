@@ -126,6 +126,7 @@
             this.batallaNavalModoAutomaticoToolStripMenuItem.Name = "batallaNavalModoAutomaticoToolStripMenuItem";
             this.batallaNavalModoAutomaticoToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
             this.batallaNavalModoAutomaticoToolStripMenuItem.Text = "Batalla Naval: Modo Automático";
+            this.batallaNavalModoAutomaticoToolStripMenuItem.Click += new System.EventHandler(this.batallaNavalModoAutomaticoToolStripMenuItem_Click);
             // 
             // batallaNavalModoSemiautomáticoToolStripMenuItem
             // 

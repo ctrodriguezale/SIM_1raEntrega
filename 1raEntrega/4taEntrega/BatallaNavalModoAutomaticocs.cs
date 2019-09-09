@@ -16,5 +16,17 @@ namespace _4taEntrega
         {
             InitializeComponent();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSimular_Click(object sender, EventArgs e)
+        {
+            BatallaNavalFunciones juego = new BatallaNavalFunciones();
+            string resultado = juego.SimularMilJuegos();
+            listBox1.Items.Add(resultado);
+        }
     }
 }

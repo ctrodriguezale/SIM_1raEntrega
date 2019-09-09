@@ -21,5 +21,11 @@ namespace _4taEntrega
         {
             Close();
         }
+
+        private void batallaNavalModoAutomaticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BatallaNavalModoAutomaticocs pantalla = new BatallaNavalModoAutomaticocs();
+            pantalla.Show();
+        }
     }
 }
