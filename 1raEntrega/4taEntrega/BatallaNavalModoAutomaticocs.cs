@@ -24,8 +24,9 @@ namespace _4taEntrega
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
+            BarraProgreso.Value = 0;
             BatallaNavalFunciones juego = new BatallaNavalFunciones();
-            string resultado = juego.SimularMilJuegos();
+            string resultado = juego.SimularMilJuegos(this.BarraProgreso);
             listBox1.Items.Add(resultado);
         }
     }

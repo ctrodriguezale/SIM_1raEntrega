@@ -379,6 +379,9 @@ namespace LibreriaSimulacion
                     sumaChi = sumaChi + chi;
 
                 }
+                xlWorkSheet.Cells[intervalos + 2, "E"] = 0;
+                xlWorkSheet.Cells[intervalos + 3, "E"] = 0;
+                xlWorkSheet.Cells[intervalos + 4, "E"] = 0;
                 //muestra Sumatorias Chi cuadrado
                 xlWorkSheet.Cells[5, "H"] = "Sumatoria x^2";
                 xlWorkSheet.Cells[5, "I"] = sumaChi;
@@ -438,32 +441,44 @@ namespace LibreriaSimulacion
             return resultado = a - b;
         }
 
+        public double CummulitiveDistributionFunction(int k, double lambda)
+        {
+            double e = Math.Pow(Math.E, (double)-lambda);
+            int i = 0;
+            double sum = 0.0;
+            while (i <= k)
+            {
+                double n = Math.Pow((double)lambda, i) / Factorial(i);
+                sum += n;
+                i++;
+            }
+            double cdf = e * sum;
+            return cdf;
+        }
+
+        private int Factorial(int k)
+        {
+            int count = k;
+            int factorial = 1;
+            while (count >= 1)
+            {
+                factorial = factorial * count;
+                count--;
+            }
+            return factorial;
+        }
+
         public double ProbDistrPoisson(double lambda, double limSup, double limInf)
         {
             double resultado;
-            double a;
-            double b;
-            a = ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limSup)) / factorial(Convert.ToInt32(limSup)));
-            b = ((Math.Pow(Math.E, -lambda) * Math.Pow(lambda, limInf)) / factorial(Convert.ToInt32(limInf)));
-
-            //if (limSup > 50)
-            //{
-            //    a = 1.00001;
-            //}
-            //else
-            //{
-                
-            //}
-            //if (limInf > 50)
-            //{
-            //    b = 1;
-            //}
-            //else
-            //{
-                
-            //}
-            //// double b = 1 - Math.Pow(Math.E, (-lambda * limInf));
-            return Math.Abs(resultado = a - b);
+            double a = 0;
+            double b = 0;
+            int superior = Convert.ToInt32(limSup);
+            int inferior = Convert.ToInt32(limInf);
+          
+            b = CummulitiveDistributionFunction(superior, lambda);
+            a = CummulitiveDistributionFunction(inferior, lambda);
+            return resultado = b-a;
         }
 
         public double ProbDistrNormal(double media, double desviacion, double limSup, double limInf)
@@ -476,17 +491,5 @@ namespace LibreriaSimulacion
             return probabilidad;
         }
 
-        public int factorial(int numero)
-        {
-
-            int count = numero;
-            int factorial = 1;
-            while (count >= 1)
-            {
-                factorial = factorial * count;
-                count= count-1;
-            }
-            return factorial;
-        }
     }
     }
