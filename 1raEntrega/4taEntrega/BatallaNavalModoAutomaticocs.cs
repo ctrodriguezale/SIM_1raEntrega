@@ -26,8 +26,9 @@ namespace _4taEntrega
         {
             BarraProgreso.Value = 0;
             BatallaNavalFunciones juego = new BatallaNavalFunciones();
-            string resultado = juego.SimularMilJuegos(this.BarraProgreso);
-            listBox1.Items.Add(resultado);
+            Tuple<string,string> resultado = juego.SimularMilJuegos(this.BarraProgreso);
+            listBox1.Items.Add(resultado.Item1);
+            listBox1.Items.Add(resultado.Item2);
         }
     }
 }
